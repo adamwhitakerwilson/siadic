@@ -1,11 +1,12 @@
 <!DOCTYPE html>
 <html>
-<head>
+
+   <head>
  <!--
 
-      Siadic Home Page
-      Author: Adam HUHDUIDHUEHDI
-      Date:   December 15th 2018
+      Dollar Grocers Home Page
+      Author: Adam Whitaker-Wilson and Doug Walch
+      Date:   October 3rd 2016
 
       Filename:         index.htm
       Supporting files:
@@ -22,7 +23,7 @@
 
 	<!-- Keywords are used to define your content for search engines. Shouldn't be longer then 1,000 characters -->
 	<meta name="keywords"
-	content="music,bass,commercial drive, vancouver"/>
+	content="dollar, grocers, groceries, produce, bulk, deli, commercial drive, vancouver"/>
 
     <script src="modernizr-1.5.js"></script>
 	 <script type="text/javascript">
@@ -39,15 +40,25 @@ weekday[4]="Thursday";
 weekday[5]="Friday";
 weekday[6]="Saturday";
 
-var d = new Date(2017,15,12);
+var d = new Date(2016,11,2);
 (d.getFullYear());
 
-var theDate = new Date(2017,11,15);
+var theDate = new Date(2016,11,2);
 theDate.setTime((theDate.getTime()+(60*60)) )
 with (theDate) {
 document.adam.joe.value = ("Last updated: "+weekday[getDay()]+" "+getDate()+" "
 +months[getMonth()]+" "+d.getFullYear()+" | Current day and time: "+now);
 }
+}
+function AddToForm1(field){
+
+var add = field.value;
+add += "\n";
+document.quickOrder.itemEnter.value += add;
+}
+
+function Ordering(){
+alert("Your order has been submited. Please Pick-up within 1 hour.  Thank You!");
 }
 
 window.onload = function volume() {
@@ -70,7 +81,7 @@ backgroundAudio.volume=0.3;
 			margin: 0px;
 			padding: 0px;
 			vertical-align: baseline;
-    /*  border: 1px solid black;*/
+      border: 1px solid black;
 		}
 
 		 body {
@@ -117,7 +128,7 @@ backgroundAudio.volume=0.3;
 			width: 100%;
 			z-index:998;
 		}
-
+    /*
 		nav.horizontal li {
 			display: block;
 			position: relative;
@@ -213,11 +224,11 @@ backgroundAudio.volume=0.3;
 			padding: .6rem;
 			text-align: center;
 			background-color: white;
-      background: -o-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: -ms-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: -moz-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: -webkit-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: linear-gradient(to right, rgb(255,255,255), rgb(0, 0, 0));
+      background: -o-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
+			background: -ms-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
+			background: -moz-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
+			background: -webkit-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
+			background: linear-gradient(to right, rgb(87,5,65), rgb(31, 31, 231));
 			position:fixed;
 			width:100%;
 			height:15px;   // Height of the footer
@@ -230,11 +241,11 @@ backgroundAudio.volume=0.3;
 			font-style: normal;
 			padding: 5px;
 			text-align: center;
-      background: -o-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: -ms-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: -moz-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: -webkit-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: linear-gradient(to right, rgb(255,255,255), rgb(0, 0, 0));
+      background: -o-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
+			background: -ms-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
+			background: -moz-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
+			background: -webkit-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
+			background: linear-gradient(to right, rgb(87,5,65), rgb(31, 31, 231));
 
 		}
 
@@ -332,7 +343,7 @@ backgroundAudio.volume=0.3;
 			border:none;
 		}
 
-
+		//Form
 
 		form#quickOrder{
 			position: absolute;
@@ -379,7 +390,21 @@ backgroundAudio.volume=0.3;
 		input[type=submit] {
 			width: 25%;
 		}
-
+		#itemEnter {
+			height: 200px;
+			width: 75%;
+			}
+		#addInfo {
+			width: 75%;
+			height: 75px;
+		}
+		textarea.addInfo, label.addInfo {
+			clear:right;
+			float:right;
+		}
+		#pickup {
+			font-style:italic;
+		}
 		audio {
 			display: block;
 			position: relative;
@@ -392,7 +417,15 @@ backgroundAudio.volume=0.3;
 			top: -60px;
 			color: rgba(0, 0, 0, .7);
 		}
-
+		#students {
+			color: rgba(0, 0, 0, .7);
+			display: block;
+			position: relative;
+			left: 390px;
+			top: -100px;
+			padding: 50px;
+			width: 35%;
+		}
 		iframe {
 			display: block;
 			position: relative;
@@ -405,28 +438,105 @@ backgroundAudio.volume=0.3;
 			-webkit-box-shadow: rgba(0, 0, 0, 0.6) 5px 0px 10px;
 			box-shadow: rgba(0, 0, 0, 0.6) 5px 0px 10px;
 			width: 250px;
-			height: 150px;
+			height: 105px;
 			border-radius: 60px;
 			float: right;
 		}
-
+    */
 	 </style>
    </head>
+
 	 <body onLoad="setInterval('clock()',1000)">
+		 <header>
+
+		 </header>
+
+			<nav class="horizontal">
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="webproject/about.htm">About</a></li>
+						<li><a href="webproject/contact.htm">Contact/Order</a></li>
+						<li><a href="webproject/photo.htm">Gallery</a></li>
+					</ul>
+			</nav>
 		 <section>
-		 <h1>siadic</h1>
+		 <h1>.</h1>
 			<article class="openStatement">
-				<h2 id="h1">siadic<img id="photo1" src="webproject/siadicyo.png" alt="siadic" /></h2>
+				<h2 id="h1"> siadic<img id="photo1" src="webproject/siadicyo.png" alt="Store Front" /></h2>
 				<h2>&#9548;.net&#9548; </h2>
+					<p><span>S</span>iadic
+					</p>
+
 			</article>
+
+			<figure class="JuiceHome">
+					<figcaption>
+				<h1>$$%%%$$$(:(>))</h1>
+					<span>D</span>ates:
+					</figcaption>
 				<img id="juice" src="webproject/words.png" alt="juice"/>
+			</figure>
+
 		</section>
+
+		<table>
+			<caption>_+++_+__+_____&++&+&_&+&+&_^+^_+^+_^+_^+^_+</caption>
+				<tr>
+				<th>=-=-8=-=-=-=8-=9-8=9-89-=8-9=89</th>
+				</tr>
+					<tr>
+					<td><input title="Click me to add to order" readonly = "readonly" type = "text" onclick="AddToForm1(this)" value = "######@@@@@@" />
+					</td>
+					</tr>
+					<tr>
+					<td><input title="Click me to add to order" readonly = "readonly" type = "text" onclick="AddToForm1(this)" value = "@@@@@RRRRRR^^^^^" />
+					</td>
+					</tr>
+				<tr>
+				<th>^^^^^^$$$$^$$%$%$%$%@##@#@#@#@#</th>
+				</tr>
+					<tr>
+					<td><input title="Click me to add to order" readonly = "readonly" type = "text" onclick="AddToForm1(this)" value = "&&&*******" />
+					</td>
+					</tr>
+				<tr>
+				<td>
+				<input title="Click me to add to order" readonly = "readonly" type = "text" onclick="AddToForm1(this)" value = "%%%%%%%%%%%%%@!@!@!@@!@!@" />
+				</td>
+		</table>
+
+		<form id="quickOrder" name="quickOrder" onsubmit="Ordering()">
+			<fieldset id= "quickfieldset">
+				<legend>##########</legend>
+				<label for="enterName">@@@@@@@@@@@@@########*</label>
+				<input name="enterName" id="enterName" required="required"/>
+				<label for="itemEnter">YYYYYYYYYZZZZZZZZ********</label>
+				<textarea name="itemEnter" id="itemEnter" required="required"></textarea>
+				<label for="addInfo">EEEEEEEEWWWWWWRRRRRRRRRR</label>
+				<textarea name="addInfo" id="addInfo" >
+				</textarea>
+				<input type="submit" value="RET"/>
+				<label id="pickup">___)))))))))______)))________)))</label>
+			</fieldset>
+		</form>
+
+				<p id= "students">433&^%^&^^%^&^%@# :)</p>
+
 		<iframe width="560" height="315" src="https://www.youtube.com/embed/qd5Ru_-sHUw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/PPhMnSJEnys" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/PPhMnSJEnys" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 		<audio controls id = "myMusic">
 			<source src="webproject/siadic-field.wav" type="audio/mpeg"/>
 			Your browser does not support the audio element.
 		</audio>
+				<p id="ben">DDDDDDDDSSSSSSSSSAAAAAAAA</p>
+				<p>
+    <a href="http://jigsaw.w3.org/css-validator/check/referer">
+        <img style="border:0;width:88px;height:31px"
+            src="http://jigsaw.w3.org/css-validator/images/vcss"
+            alt="Valid CSS!" />
+    </a>
+</p>
+			<a href="webproject/cross_reference.htm">&^%#%%</a>
 		 <footer>
 			 <address >
 				 <form name="adam" id="adam">
@@ -437,6 +547,7 @@ backgroundAudio.volume=0.3;
 			  <<<>>> &nbsp;&#1216;&nbsp;
 			  <><>>>$$$$22211113
 			 </address>
+
 		 </footer>
 	 </body>
 </html>
