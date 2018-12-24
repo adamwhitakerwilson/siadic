@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+<!--
+
+      Dollar Grocers Contact Page
+      Author: Adam Whitaker-Wilson
+      Date:   October 3rd 2016
+
+      Filename:         contact.htm
+      Supporting files:
+   -->
+
+		<meta charset="UTF-8" />
+		<title>Dollar Grocers - Contact</title>
+		<link rel="icon" href="dollarad1sm.png" type="image/png">
+		<link href="dg_contact.css" rel="stylesheet" type="text/css"/>
+		<script src="modernizr-1.5.js"></script>
+
+
+<script type="text/javascript">
+function AddToForm1(field){
+
+	var add = field.value;
+	add += "\n";
+	document.orderform.orderfield.value += add;
+}
+function Ordering(){
+	alert("Your order has been submited. We will call you when your order is ready. Thank You!");
+	}
+function Message(){
+	alert("Your message has been submited. Thank You!");
+	}
+$(document).ready(function(){
+    $("#flip").click(function(){
+        $("#panel").slideToggle("slow");
+    });
+});
+</script>
+   </head>
+
+	 <body>
+		 <header>
+		 </header>
+			<nav class="horizontal">
+				<ul>
+					<li><a href="../index.html">Home</a></li>					
+					<li><a href="about.htm">About</a></li>
+					<li><a href="contact.htm">Contact/Order</a></li>
+					<li><a href="photo.htm">Gallery</a></li>
+				</ul>
+			</nav>
+		 <section>
+			<table class="MiniSpecials" >
+			 <caption id="specialCap">Specials</caption>
+
+				<tr>
+					<th><input title="Click me to add to order" readonly = "readonly" type = "button" onclick="AddToForm1(this)" value = "Almond Breeze 946ml (Vanilla)/ 2 for $5.00" /></th>
+					<th><input title="Click me to add to order" readonly = "readonly" type = "button" onclick="AddToForm1(this)" value = "Carrot Bag 3lbs / $1.99 ea" /></th>
+					<th><input title="Click me to add to order" readonly = "readonly" type = "button" onclick="AddToForm1(this)" value = "Natural Path Cereal Eco-Pac 750g / $6.59 ea" /></th>
+					<th><input title="Click me to add to order" readonly = "readonly" type = "button" onclick="AddToForm1(this)" value = "Dan-D-Pak Natural Almonds 1.13kg / $10.99 ea" /></th>
+					</tr>
+					<tr>
+					<th><input title="Click me to add to order" readonly = "readonly" type = "button" onclick="AddToForm1(this)" value = "truRoots Organic Quinoa 2lbs / $19.99 ea" /></th>
+					<th><input title="Click me to add to order" readonly = "readonly" type = "button" onclick="AddToForm1(this)" value = "Granny Smith Apples 5lb Bag / $2.99 ea" /></th>
+					<th><input title="Click me to add to order" readonly = "readonly" type = "button" onclick="AddToForm1(this)" value = "Avocado (Organic) / $1.00 ea" /></th>
+					<th><input title="Click me to add to order" readonly = "readonly" type = "button" onclick="AddToForm1(this)" value = "Silver Hills - Squirrelly Bread 600g / $3.99 ea" /></th>
+				</tr>
+			</table>
+			<article>
+				<p>Any suggestions or questions are greatly appreciated!</p>
+			</article>
+<!-- Contact form -->
+			<form id="contactform" onsubmit="Message()">
+			<fieldset id="contactinfo">
+				<legend>Contact Us</legend>
+
+				<label for="contname">Name *</label>
+				<input name="contname" id="contname" type="text" required="required"/>
+
+				<label for="contemail">Email *</label>
+				<input name="contemail" id="contemail" type="text" required="required"/>
+
+				<label for="contmessage">Message *</label>
+				<textarea name="contmessage" id="contmessage" required="required"/></textarea>
+
+				<p id="contactsubmit">
+					<input type="submit" value="Send"/>
+					<input type="reset" value="Reset"/>
+				</p>
+			</fieldset>
+			</form>
+	<!-- Order form -->
+			<form name = "orderform" id="orderform" onsubmit="Ordering()">
+				<fieldset id="orderfull">
+					<fieldset id="order">
+						<legend>Pick-up or Delivery (within a 5km radius)</legend>
+
+						<label for "?">Pick-up or Delivery? *</label>
+						<input name = "?" id= "pickup" type="radio" required="required"/>
+						<input name = "?" id= "delivery" type="radio" required="required"/>
+						<label for="ordername">Name *</label>
+						<input name="ordername" id="ordername" type="text" required="required"/>
+
+						<label for="orderemail">Email</label>
+						<input name="orderemail" id="orderemail" type="text"/>
+
+						<label for="phone">Phone Number *</label>
+						<input name="phone" id="phone" type="text" placeholder="(nnn) nnn-nnnn" required="required"/>
+
+						<label for="address">Delivery Address *</label>
+						<input name="address" id="address" required="required"/>
+
+						<label for="postal" id = "postalid">Postal Code *</label>
+						<input name="postal" id="postal" type="text" required="required"/>
+					</fieldset>
+					<fieldset id="location">
+						<label for="building">Building Type</label>
+						<select name="building" id="building">
+							<option id="select" value="select">--Select One--</option>
+							<option value="house">House</option>
+							<option value="apartment">Apartment</option>
+							<option value="business">Business</option>
+							<option value="campus">Campus</option>
+						</select>
+						<label for="paytype">Payment Type *</label>
+						<select name="paytype" id="paytype" required="required">
+							<option id="select" value="select">--Select One--</option>
+							<option value="cash">Cash</option>
+							<option value="debit">Debit</option>
+							<option value="credit">Credit</option>
+						</select>
+						</fieldset>
+					<fieldset id="ordering">
+						<label for="orderfield">Order *</label>
+						<textarea name="orderfield" id="orderfield" required="required"/></textarea>
+						<label for="instructions">Special Delivery Instructions</label>
+						<textarea name="instructions" id="instructions"></textarea>
+
+					<p id="ordersubmit">
+						<input type="submit" value="Submit Order" />
+						<input type="reset" value="Cancel"/>
+					</p>
+					</fieldset>
+				</fieldset>
+			</form>
+			<table class="Suppliers">
+			<caption><div id="flip">If we don't have what you are looking for, check our Local Suppliers and we may order it for you!!!!!</div></caption>
+			<tr>
+				<th><a href= "http://www.discoveryorganics.ca/" target="_blank">Discovery Organics</a></th>
+
+					<td> Discovery Organics is an independently
+					owned Canadian distributor of Certified Organic and Fair Trade produce.
+					We passionately work to promote Certified Organic and Fair Trade
+					by building relationships with small scale farmers here in B.C.
+					as well as through Latin America.
+					</td>
+				<th><a href= "http://www.vanwhole-produce.com/" target="_blank">Van-Whole Produce</a></th>
+				<td> As Western Canada’s leading produce wholesaler,
+					with a network of over 600 growers from 40 countries,
+					Van-Whole Produce brings over 400 varieties of fresh produce
+					to more than 1,300 produce markets in Canada.
+					</td>
+				<th><a href= "http://www.dan-d-pak.com/" target="_blank">Dan-D-Pak</a></th>
+				<td> We're a manufacturer and distributor of fine foods.
+					Our portfolio includes more than 2,000 SKUs, including nuts,
+					dried fruits, trail mixes, crunchy snacks, grains and cereals and many,
+					many, more.
+					</td>
+				<th><a href= "http://dovreimport.com/" target="_blank">Dovre Imports</a></th>
+				<td> We bring the finest gourmet specialties from around the globe and around the corner.
+					We look for the best producers, using the finest ingredients,
+					quality standards and sustainable packaging.
+					</td>
+				<th><a href= "http://www.horizondistributors.com/" target="_blank">Horizon Distributors</a></th>
+				<td>Horizon is the supplier of major natural, grocery and independent grocery chains,
+					independent health food stores, buying clubs, restaurants, cafés and specialty
+					retailers via a fleet of trucks and common carriers.
+					</td>
+			</tr>
+			<tr>
+				<th><a href= "http://www.sunrise-soya.com/" target="_blank">Sunrise Soya</a></th>
+				<td> Since 1956, Sunrise Soya Foods has been trusted by generations to produce healthy and delicious soy products.
+					Proud to be family-owned and operated, Sunrise CEO, Peter Joe, continues his father’s work, growing the company
+					from a one person operation to the largest tofu manufacturer in Canada.
+					</td>
+				<th><a href= "https://www.jivaorganics.ca/" target="_blank">Jiva Organics</a></th>
+				<td> Jiva Organics is a leading business-to-business distributor of
+					certified organic, kosher, vegetarian & healthy foods based in
+					Burnaby, British Columbia.
+					</td>
+				<th><a href= "http://www.leftcoastnaturals.com/" target="_blank">Left Coast Naturals</a></th>
+				<td> Left Coast Naturals is an organic and natural food manufacturer and distributor
+					based in Burnaby, British Columbia and is the first distributor in North America
+					to have a formal Non-GMO Policy.
+					</td>
+				<th><a href= "http://www.avalondairy.com/" target="_blank">Avalon Dairy</a></th>
+				<td> If the cows could deliver it fresh to you, they would. But that would take a long time.
+					So instead, we deliver our classic glass bottles to your local grocer...
+					</td>
+				<th><a href= "http://www.summerfresh.com/" target="_blank">Summer Fresh</a></th>
+				<td> Fresh and flavourful, healthy and nutritious gourmet dips and appetizers, salads and chef
+					prepared foods for a busy lifestyle is what Summer Fresh Salads is all about.
+					</td>
+			</tr>
+
+		</table>
+
+		</section>
+		<iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2603.6090177892743!2d-123.0717326494495!3d49.26485617922796!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x54867148bcc2a893%3A0xfb765c4b1d6f7f89!2sDollar+Grocers+Ltd!5e0!3m2!1sen!2sca!4v1480630586483" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+		 <footer>
+		 <address>
+		  Dollar Grocers &nbsp;&#1216;&nbsp;
+            2210 Commercial Drive &nbsp;&#1216;&nbsp;
+            Vancouver, Canada V5N 5P9 &nbsp;&#1216;&nbsp;
+            (604) 255 - 9933
+		 </address>
+		 </footer>
+	 </body>
+</html>

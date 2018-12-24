@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+
+   <head>
+<!--
+
+      Dollar Grocers Photo Page
+      Author: Adam Whitaker-Wilson and Doug Walch
+      Date:   October 3rd 2016
+
+      Filename: photo.htm
+      Supporting files:
+   -->
+
+		<meta charset="UTF-8" />
+		<title>Dollar Grocers - Photos</title>
+		<link rel="icon" href="dollarad1sm.png" type="image/png">
+		<script src="modernizr-1.5.js"></script>
+		<link href="dg_reset.css" rel="stylesheet" type="text/css"/>
+		<link href="dg_styles.css" rel="stylesheet" type="text/css"/>
+		<style>
+			.mySlide {display:none;}
+			#myAutoSlide {
+				position: relative;
+				padding: 100px 250px;
+			}
+			.horizontal {
+			z-index: 100;
+			}
+		</style>
+	</head>
+	<body>
+
+		<header>
+		<nav class="horizontal">
+				<ul>
+					<li><a href="../index.html">Home</a></li>
+					<li><a href="about.htm">About</a></li>
+					<li><a href="contact.htm">Contact</a></li>
+					<li><a href="photo.htm">Gallery</a></li>
+				</ul>
+		</nav>
+		</header>
+		<section id="myAutoSlide";>
+			 <div id="autoSlide" style="max-width:750px" style="centered">
+				<a href="soda.jpg" target="_blank"><img class="mySlide" src="sodasm.jpg" alt="soda" style="width:100%"/></a>
+				<a href="produce.jpg" target="_blank"><img class="mySlide"  src="producesm.jpg" alt="produce" style="width:100%" /></a>
+				<a href="staranis.jpg" target="_blank"><img class="mySlide" name="staranis" src="staranissm.jpg" alt="star anis" style="width:100%" /></a>
+				<a href="bulk.jpg" target="_blank"><img class="mySlide" src="bulksm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="bulk2.jpg" target="_blank"><img class="mySlide" src="bulk2sm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="bulk3.jpg" target="_blank"><img class="mySlide" src="bulk3sm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="bulk4.jpg" target="_blank"><img class="mySlide" src="bulk4sm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="bulk5.jpg" target="_blank"><img class="mySlide" src="bulk5sm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="bulk6.jpg" target="_blank"><img class="mySlide" src="bulk6sm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="bulkland.jpg" target="_blank"><img class="mySlide" src="bulklandsm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="bulkscoop.jpg" target="_blank"><img class="mySlide" src="bulkscoopsm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="bulkseeds.jpg" target="_blank"><img class="mySlide" src="bulkseedssm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="cheese.jpg" target="_blank"><img class="mySlide" src="cheesesm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="coffee.jpg" target="_blank"><img class="mySlide" src="coffeesm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="curry.jpg" target="_blank"><img class="mySlide" src="currysm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="ddpk.jpg" target="_blank"><img class="mySlide" src="ddpksm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="ddpk2.jpg" target="_blank"><img class="mySlide" src="ddpk2sm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="grocery.jpg" target="_blank"><img class="mySlide" src="grocerysm.jpg" alt="bulk" style="width:100%" /></a>
+				<a href="grocery2.jpg" target="_blank"><img class="mySlide" src="grocery2sm.jpg" alt="bulk" style="width:100%" /></a>
+			</div>
+			<script>
+				var index = 0;
+				carousel();
+
+				function carousel() {
+					var i;
+					var x = document.getElementsByClassName("mySlide");
+					for(i = 0; i < x.length; i++){
+						x[i].style.display = "none";
+					}
+					index++;
+					if(index > x.length) {index=1}
+					x[index-1].style.display = "block";
+					setTimeout(carousel, 5000);
+				}
+			</script>
+		</section>
+		<footer>
+		<address>
+		  Dollar Grocers &nbsp;&#1216;&nbsp;
+            2210 Commercial Drive &nbsp;&#1216;&nbsp;
+            Vancouver, Canada V5N 5P9 &nbsp;&#1216;&nbsp;
+            (604) 255 - 9933
+		</address>
+		</footer>
+
+
+
+	 </body>
+
+</html>

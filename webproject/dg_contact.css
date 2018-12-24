@@ -1,0 +1,408 @@
+/*
+
+   Dollar Grocers Contact/Order Page Styles
+   Author: Adam Whitaker-Wilson, Doug Walch
+   Date:   November 5th 2016
+
+   Filename:         dg_contact.css
+   Supporting Files: 
+
+*/
+
+
+/* Display HTML5 structural elements as blocks */
+
+/*body*{  
+
+	display: none;
+	outline: 1px solid red;
+
+	}
+	*/
+	
+	/* Set the default page element styles */
+
+	body * {   
+		font-family: halvetica, Geneva, sans-serif;
+			font-size: 100%;
+			font-weight: inherit;
+			line-height: 1.2em;
+			list-style: none;
+			margin: 0px;	
+			padding: 0px;
+			vertical-align: baseline;
+		
+	}
+	
+	 body{
+		margin: 0px;
+			padding: 0px;
+			background: url('lemonhead2.jpg') no-repeat right bottom;
+			background: -o-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: -ms-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: -moz-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: -webkit-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			padding-bottom:350px; 	
+		
+	}
+
+	header{	
+		padding: 0px;
+			background: url('lemonhead2.jpg') no-repeat right bottom;
+			opacity: 1;
+			height:70px;
+			width:100%;
+			position: fixed;	
+			z-index: 999;	
+			margin-top: 0%;
+			-webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));					
+	}
+	
+	
+	
+	h1{font-variant: small-caps;}
+	
+	nav.horizontal {
+		background: -o-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: -ms-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: -moz-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: -webkit-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			margin-top: 0%;
+			z-index: 5;
+			height: 105px;
+			position: fixed;
+			display: block;
+			width: 100%;
+		
+			
+	}
+	
+	nav.horizontal li {
+		display: block;
+			position: relative;
+			top:65px;
+			left:50px;
+			float:left;
+			letter-spacing: 5px;
+			line-height: 30px;
+			text-align: center;
+			padding-left: 75px;
+			width: 15%;
+			left: 8%;
+			-webkit-mask-background:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+			
+	}
+	
+	nav.horizontal li  a{
+		color: rgb(68, 0, 163);
+			font-variant: small-caps;
+			font-size: 30px;
+			font-family: 'Trebuchet MS', Helvetica, sans-serif;
+			text-decoration: none;
+			width: 100%;
+			-moz-text-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;    
+			-webkit-text-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;   
+			text-shadow: rgba(0,0,0, 0.25) 2px 0px 3px; 
+			
+	}
+
+	nav.horizontal li a:hover {
+		color: rgb(255,255,0);
+	}
+	
+	section{
+		position: relative;
+		top: 150px;
+	}
+	
+	footer {
+		right: 0;
+		bottom: 0;
+		left: 0;
+		padding: .6rem;
+		text-align: center;
+		background-color: white;
+		background: -o-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: -ms-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: -moz-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: -webkit-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		position:fixed;
+		width:100%;
+		height:15px;   /* Height of the footer */
+	}
+
+	footer address {   
+		color: rgb(68, 0, 163);   
+		font-size: 80%;   
+		font-style: normal;   
+		padding: 5px;
+		text-align: center; 
+		background: -o-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: -ms-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: -moz-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: -webkit-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	}
+	
+/*SPECIALS TABLE*/
+
+	caption#specialCap{		
+		
+	}
+
+	table, th, td {
+	}
+	table tr th a {		
+	}
+	
+	table tr th a:visited {
+		color: green;
+	}
+	
+	table.MiniSpecials {		
+		
+		position:relative;
+		top: -49px;
+		
+	}
+	
+	table.MiniSpecials tr{
+		display:block;		
+	}
+	
+	.MiniSpecials tr th input {		
+		font-variant: small-caps;
+		padding : 7px;
+		text-align: center;
+		word-break: keep-all;
+		height: 33px;
+		border-radius: 30%;	
+		 -moz-box-shadow:rgba(0, 0, 0, 0.6) 1px 0px 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.6) 1px 0px 3px;
+  box-shadow: rgba(0, 0, 0, 0.6) 1px 0px 3px;
+	}
+	table.MiniSpecials, tr, th{
+		width:80%;
+	}
+	table.MiniSpecials caption{
+		color: rgb(68, 0, 163);
+		font-size: 150%;
+		font-weight:bold;
+		width: 95%;
+		text-decoration: underline;
+		font-variant: small-caps;
+		clear:left;
+		float:left;	
+		padding: 17px;		
+	}
+	
+/*SUPPLIERS TABLE*/
+		table.Suppliers{
+			
+		position:relative;
+		text-decoration: none;	
+		
+		width:70%;
+		left:-255px;
+		top: -12px;
+		
+		}
+		table.Suppliers caption{
+			padding-top: 7px;
+			padding-bottom: 45px;
+			
+		}
+		table.Suppliers th{
+			display:block;
+			position:relative;
+			font-variant: small-caps;
+			text-align:center;	
+			text-indent: 20%;
+			padding-top: 8px;
+			padding-bottom:10px; 
+		}
+		table.Suppliers td{
+			display:block;
+			font-size: 80%;	
+text-align:center;				
+		}
+		
+		
+		
+/*Form STATEMENT*/
+	
+	article p{
+		display:block;	
+		position:relative;
+		width: 50%;
+		text-align: left;
+		text-indent: 30px;
+		padding: 15px;		
+		top:-45px;
+		
+	}
+	
+/*CONTACT FORM*/	
+	form#contactform{
+		display:block;	
+		position:relative;
+		top: -50px;
+		clear:left;
+		float: left;
+		left: -40px;
+		width: 30%;
+		
+		}
+		form#contactform input{
+		clear:left;
+		float: left;
+		
+		}
+		#contname, #contemail{
+			width: 60%;
+		}
+		#contactsubmit{
+			width: 70%;
+					
+		}
+		#contactsubmit input{
+			margin: 5px;
+			border-radius: 45%;
+ -moz-box-shadow:rgba(0, 0, 0, 0.6) 1px 0px 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.6) 1px 0px 3px;
+  box-shadow: rgba(0, 0, 0, 0.6) 1px 0px 3px;			
+		}
+		form#contactform label{
+			position:relative;
+			left: 100px;
+			}
+			form#contactform input{
+				position:relative;
+			left: 100px;
+			}
+			form#contactform textarea{
+				position:relative;
+			left: 100px;
+			height: 150px;
+		width: 75%;
+			}
+			form#contactform legend{position:relative;
+			left: 100px;}
+	
+	fieldset{
+		border: hidden;
+	}
+/*ORDER FORM*/
+	
+	form#orderform {
+		display:block;	
+		position:relative;
+		top: -75px;
+		left: 100px;
+		width: 50%;
+		float:left;
+		height:300px;
+		}
+		#order,#location{
+			width: 50%;
+			display:block;
+			position:relative;
+		}
+		#ordername,#phone, #orderemail,#address, #postal{
+			width: 100%;
+			}
+		
+		
+		#pickup{
+			vertical-align: middle;
+		margin: 0px;
+		padding: 20px;
+		}
+		#delivery{
+			vertical-align: middle;
+		margin: 0px;
+		}
+		#ordering{
+			display:block;
+			position:relative;
+			clear:right;
+			float:right;
+			width:49%;
+			top:-335px;
+		}
+		#orderfield{
+			height: 225px;
+		width: 100%;
+		}
+		#instructions{
+		height: 75px;	
+		width: 100%;
+		}
+		#ordersubmit{
+			display:block;
+			position:relative;
+			float:left;
+			width:150%;
+			top: 0px;			
+		}
+		#ordersubmit input{
+			border-radius: 45%;	
+			 -moz-box-shadow:rgba(0, 0, 0, 0.6) 1px 0px 3px;
+  -webkit-box-shadow: rgba(0, 0, 0, 0.6) 1px 0px 3px;
+  box-shadow: rgba(0, 0, 0, 0.6) 1px 0px 3px;
+		}
+		select{
+			width: 100%;
+		}
+	label {
+		clear:left;
+		float:left;
+	}
+	
+	legend, select{
+		font-variant: small-caps;
+		background-color: white;
+		background-color: rgba(255, 255, 255, 0.5);
+		
+	}
+	
+	
+	input {		
+		background-color: white;
+		background-color: rgba(255, 255, 255, 0.5);
+		
+	}
+	
+	textarea {
+		background-color: white;
+		background-color: rgba(255, 255, 255, 0.5);
+		clear:left;
+		float:left;
+	}
+	
+	input[type=submit] {
+		width: 25%;
+	}
+	
+	input[type=reset] {
+		width: 35%;
+	}
+	
+	
+	
+	textarea.addInfo, label.addInfo {
+		clear:right;
+		float:right;
+	}
+	iframe{
+			display: block;
+			position: relative;
+			left: 339px;
+			top: 180px;
+			border-radius: 60px;
+		}
+	
+		

@@ -1,0 +1,212 @@
+/*
+      
+      Dollar Grocers Style Sheet
+      Author: Adam Whitaker-Wilson and Doug Walch
+      Date:   October 3rd 2016
+
+      Filename:         dg_styles.css
+      Supporting files: display: none;	
+   */
+/*aside{
+	
+	outline: solid 2px red; 
+}*/
+
+body * {
+	font-family: Verdana, Geneva, sans-serif;
+	font-size: 100%;
+	font-weight: inherit;
+	line-height: 1.2em;
+	list-style: none;
+	margin: 0px;	
+	padding: 0px;
+	vertical-align: baseline;
+	width:100%;	
+	
+}
+body{
+	margin: 0px;
+    padding: 0px;
+	background: -o-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: -ms-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: -moz-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: -webkit-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	
+}
+ 
+header nav:not(#dol){	
+	padding: 0px;
+	background: url('lemonhead2.jpg') no-repeat right bottom;
+	height:70px;
+	width:100%;	
+	-webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+	
+}
+/*aside#jchome{
+	position: relative;
+	clear: right;   
+	float: right;  	
+	margin-left: 33%; 
+	width: 40%; 
+	top:40%;
+<<<<<<< HEAD
+}*/
+=======
+	
+}
+>>>>>>> origin/master
+#dol {
+	font-size: 200%;
+	font-weight: bold;
+	text-shadow: rgb(50,50,50);
+	padding: 0px;
+	text-align: left;
+	position: absolute;
+	top: 0%;
+	
+	
+}
+#dol a{
+	text-decoration: none;
+	color:black;
+}
+nav.vertical {
+	display:none;
+}
+/*Horizontal Navigation List Styles */
+nav.horizontal {
+	background: -o-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: -ms-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: -moz-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: -webkit-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	height: 40px;
+	position: fixed;
+	display: block;
+	width: 100%;
+}
+
+nav.horizontal li {
+	display: block;
+	position: relative;
+	float: left;
+	line-height: 20px;
+	text-align: center;
+	width: 10%;
+	left: 8%;
+}
+	
+nav.horizontal li  a{
+    color: rgb(68, 0, 163);
+    font-variant: small-caps;
+    font-size: 30px;
+    font-family: 'Trebuchet MS', Helvetica, sans-serif;
+    text-decoration: none;
+    width: 100%;
+    -moz-text-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;    
+    -webkit-text-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;   
+   
+    text-shadow: rgba(0,0,0, 0.25) 2px 0px 3px; 
+   
+    
+}
+
+nav.horizontal li a:hover {
+	color: rgb(255,255,0);
+}
+
+
+/* Section Image Styles */
+#juice{
+	display: inline-block;
+	margin: 5px;
+	border: 1px solid #777;
+	float: left;
+	width: 180px;
+	height: 100%;
+	position:relative;
+	top: 11em; 
+	left: 8em;
+	-moz-border-radius: 30px; 
+	-webkit-border-radius: 30px; 
+	border-radius: 30px;
+	-moz-box-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;    
+	-webkit-box-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;   
+	box-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px; 
+}
+
+section p{	
+	display:block;
+	position: absolute;
+	top: -10%;
+	left: 0%;
+	text-align: center;
+	width: 40%;
+	float:left;
+	margin: 20%;
+}	
+
+
+div.desc {
+    padding: 15px;
+    text-align: center;
+}
+
+/* Footer Styles */
+   
+footer {   
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	height: 70px;
+	background-color: white;
+	width: 98%;
+	background: -o-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: -ms-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: -moz-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: -webkit-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	}
+	
+footer address {   
+
+	color: rgb(68, 0, 163);   
+	font-size: 80%;   
+	font-style: normal;   
+	padding: 5px;
+	text-align: center; 
+	background: -o-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: -ms-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: -moz-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: -webkit-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	background: linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+	}
+
+#head{
+	display: block;
+	position:relative;
+	overflow:visible;
+}
+#joe{
+	width: 15%;	
+}
+img{
+	
+    width: 50%;
+}
+
+/*address{
+	position: absolute;
+	left: 25%;
+     top: 10%;
+	
+}
+footer form{
+	width: 15%;
+	margin: 100px;
+	position: absolute;
+     left: 50%;
+     top: 50%;
+	
+}*/

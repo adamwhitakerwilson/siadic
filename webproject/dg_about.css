@@ -1,0 +1,298 @@
+/*
+
+   Dollar Grocers Contact/Order Page Styles
+   Author: Adam Whitaker-Wilson, Doug Walch
+   Date:   November 5th 2016
+
+   Filename:         dg_about.css
+   Supporting Files: 
+
+*/
+
+
+/* Display HTML5 structural elements as blocks */
+
+/*body*{  
+
+	display: none;
+	outline: 1px solid red;
+
+	}
+	*/
+		aside, hgroup{  
+			
+			}
+	
+		body * {
+			font-family: halvetica, Geneva, sans-serif;
+			font-size: 100%;
+			font-weight: inherit;
+			line-height: 1.2em;
+			list-style: none;
+			margin: 0px;	
+			padding: 0px;
+			vertical-align: baseline;
+			
+			
+		}
+		
+		 body{
+			margin: 0px;
+			padding: 0px;
+			background: url('lemonhead2.jpg') no-repeat right bottom;
+			background: -o-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: -ms-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: -moz-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: -webkit-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			padding-bottom:40px; 				
+
+		}
+		header {	
+			padding: 0px;
+			background: url('lemonhead2.jpg') no-repeat right bottom;
+			opacity: 1;
+			height:70px;
+			width:100%;
+			position: fixed;	
+			z-index: 999;	
+			margin-top: 0%;
+			-webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));				
+		}
+		h1{font-variant: small-caps;}
+		
+		nav.horizontal {
+			background: -o-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: -ms-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: -moz-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: -webkit-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			background: linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+			margin-top: 0%;
+			height: 105px;
+			position: fixed;
+			display: block;
+			width: 100%;
+			z-index: 5;
+		}
+		nav.horizontal li {
+			display: block;
+			position: relative;
+			top:65px;
+			left:50px;
+			float:left;
+			letter-spacing: 5px;
+			line-height: 30px;
+			text-align: center;
+			padding-left: 75px;
+			width: 15%;
+			left: 8%;
+			-webkit-mask-background:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+		}
+		nav.horizontal li  a{
+			color: rgb(68, 0, 163);
+			font-variant: small-caps;
+			font-size: 30px;
+			font-family: 'Trebuchet MS', Helvetica, sans-serif;
+			text-decoration: none;
+			width: 100%;
+			-moz-text-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;    
+			-webkit-text-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;   
+			text-shadow: rgba(0,0,0, 0.25) 2px 0px 3px; 
+		}
+
+		nav.horizontal li a:hover {
+			color: rgb(255,255,0);
+		}
+
+		nav.vertical {
+			display:none;
+			float:left;
+			width: 18%;
+		}
+
+		nav.vertical li a {
+			color: rgb(68, 0, 163);
+			font-variant: small-caps;
+			font-size: 30px;
+			font-family: 'Trebuchet MS', Helvetica, sans-serif;
+			text-decoration: none;
+			width: 100%;
+			-moz-text-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;    
+			-webkit-text-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;   
+			text-shadow: rgba(0,0,0, 0.25) 2px 0px 3px;
+		}
+	span{
+		font-size: 400%;
+		}
+		#photo1{
+			
+			display:block;
+		position:relative;
+		opacity: .9;	
+			z-index: -1;
+			top:-80px;
+			
+		}
+	#photo2{
+		display:block;
+		position:relative;
+		z-index: -1;
+		-ms-transform: rotate(-7deg); /* IE 9 */
+		-webkit-transform: rotate(-7deg); /* Chrome, Safari, Opera */
+		transform: rotate(-7deg);
+		opacity: .12;	
+top:60px;		
+		}
+		
+	#photo3{
+		display:block;
+		position:relative;
+		z-index: -1;	
+		-ms-transform: rotate(7deg); /* IE 9 */
+		-webkit-transform: rotate(7deg); /* Chrome, Safari, Opera */
+		transform: rotate(7deg);
+		opacity: .12;
+		top:60px;
+		}
+		
+		
+	section{
+		position: relative;
+		top: 150px;
+		
+		}
+	#statement{
+		display:block;
+		position:relative;
+		text-align:center;
+		left: 20%;
+		padding: 40px;
+		}
+	 figure img{
+		display:block;
+		position:relative;
+		width:50%;
+		height:50%;
+		border-radius: 40px;
+		left:22%;
+		top:-25px;
+			
+		}
+		figure{
+			padding: 60px;
+		}
+	figcaption{text-align:center;
+		font-variant:small-caps;
+		
+		}
+	
+	footer {
+		
+		right: 0;
+		bottom: 0;
+		left: 0;
+		padding: .6rem;
+		text-align: center;
+		background-color: white;
+		background: -o-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: -ms-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: -moz-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: -webkit-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		position:fixed;
+		width:100%;
+		height:15px;   /* Height of the footer */
+		
+		}
+
+	footer address {   
+		color: rgb(68, 0, 163);   
+		font-size: 80%;   
+		font-style: normal;   
+		padding: 5px;
+		text-align: center	; 
+		background: -o-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: -ms-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: -moz-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: -webkit-linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		background: linear-gradient(left, rgb(187,255,65), rgb(231, 231, 231));
+		}
+	
+/*SPECIALS TABLE*/
+
+	table tr th a:visited {
+		color: green;
+		}
+	
+	
+/*SUPPLIERS TABLE*/
+		table.Suppliers{		
+		display:block;
+		position:relative;
+		text-align: center;
+		text-decoration: none;			
+		width:70%;
+		left:10%;
+		top: -1135px;
+		
+		}
+		table.Suppliers caption{
+			padding: 25px;
+			padding-bottom: 10px;
+			font-variant: small-caps;
+			font-size: 150%;
+			text-align: center;
+			text-indent: 35px;
+			
+			
+		}
+		table.Suppliers th{
+			padding: 25px;
+			display:block;
+			position:relative;
+			font-variant: small-caps;
+			text-align:center;
+			text-indent: 12%;
+			text-decoration:none;
+		}
+		table.Suppliers td{
+			display:block;
+			position:relative;
+			font-size: 80%;
+			text-align:center;			
+		}
+		table.Suppliers a{
+			display:block;
+			position:relative;
+			
+			text-align:left;			
+		}
+		
+		
+		
+/*Form STATEMENT*/
+	
+	 article p{
+		display:block;	
+		position:relative;
+		float:left;
+			width: 50%;
+		text-align: left;
+		text-indent: 30px;
+		padding: 15px;		
+		top:-60px;
+		
+		}
+		article{
+			
+			
+		}
+		iframe{
+			display: block;
+			position: relative;
+			left: 330px;
+			top: -950px;
+			border-radius: 60px;
+		}
+
+	
