@@ -29,8 +29,8 @@
 	 <script type="text/javascript">
 function clock(){
 
-months = ["January", "Febraury", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-var now=new Date();
+months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+var now=new Date().getTime();
 var weekday=new Array(7);
 weekday[0]="Sunday";
 weekday[1]="Monday";
@@ -40,35 +40,17 @@ weekday[4]="Thursday";
 weekday[5]="Friday";
 weekday[6]="Saturday";
 
-var d = new Date(2016,11,2);
+var d = new Date(2019,0,11);
 (d.getFullYear());
 
-var theDate = new Date(2016,11,2);
+var theDate = new Date(2019,0,11);
 theDate.setTime((theDate.getTime()+(60*60)) )
 with (theDate) {
 document.adam.joe.value = ("Last updated: "+weekday[getDay()]+" "+getDate()+" "
-+months[getMonth()]+" "+d.getFullYear()+" | Current day and time: "+now);
++months[getMonth()]+" "+d.getFullYear()+" | "+now);
 }
-}
-function AddToForm1(field){
-
-var add = field.value;
-add += "\n";
-document.quickOrder.itemEnter.value += add;
-}
-
-function Ordering(){
-alert("Your order has been submited. Please Pick-up within 1 hour.  Thank You!");
-}
-
-window.onload = function volume() {
-var backgroundAudio=document.getElementById("myMusic");
-backgroundAudio.volume=0.3;
-
 }
 	 </script>
-
-
 
 	 <style>
 
@@ -88,364 +70,44 @@ backgroundAudio.volume=0.3;
 			margin: 0px;
 			padding: 0px;
 			background: url('webproject/linear.png') no-repeat right bottom;
-			background: -o-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: -ms-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: -moz-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: -webkit-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: linear-gradient(to right, rgb(255,255,255), rgb(0, 0, 0));
+			background: -o-linear-gradient(left, rgb(0, 0, 0), rgb(0, 0, 0));
+			background: -ms-linear-gradient(left, rgb(0, 0, 0), rgb(0, 0, 0));
+			background: -moz-linear-gradient(left, rgb(0, 0, 0), rgb(0, 0, 0));
+			background: -webkit-linear-gradient(left, rgb(0, 0, 0), rgb(0, 0, 0));
+			background: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));
 			padding-bottom:50px;
 		}
-/*
-
-		header {
-			padding: 0px;
-			background: url('webproject/linear.png') no-repeat right bottom;
-			opacity: 1;
-			height:70px;
-			width:100%;
-			position: fixed;
-			z-index: 999;
-			margin-top: 0%;
-			-webkit-mask-image:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
-		}
-
-
-		h2 {
-			font-variant: small-caps;
-			padding:2px;
-		}
-		*/
-
-	/*	nav.horizontal {
-      background: -o-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: -ms-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: -moz-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: -webkit-linear-gradient(left, rgb(255,255,255), rgb(0, 0, 0));
-			background: linear-gradient(to right, rgb(255,255,255), rgb(0, 0, 0));
-			margin-top: 0%;
-			height: 105px;
-			position: fixed;
-			display: block;
+		#joe {
 			width: 100%;
-			z-index:998;
+			background-color: rgb(0,0,0);
+			color:azure; 
 		}
-		*/
-    /*
-		nav.horizontal li {
-			display: block;
-			position: relative;
-			top:65px;
-			left:50px;
-			float:left;
-			letter-spacing: 5px;
-			line-height: 30px;
-			text-align: center;
-			padding-left: 75px;
-			width: 15%;
-			left: 8%;
-			-webkit-mask-background:-webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
-		}
-		nav.horizontal li  a{
-			color: rgb(68, 0, 163);
-			font-variant: small-caps;
-			font-size: 30px;
-			font-family: 'Trebuchet MS', Helvetica, sans-serif;
-			text-decoration: none;
-			width: 100%;
-			-moz-text-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;
-			-webkit-text-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;
-			text-shadow: rgba(0,0,0, 0.25) 2px 0px 3px;
-		}
-
-		nav.horizontal li a:hover {
-			color: rgb(255,255,0);
-		}
-
-		nav.vertical {
-			display:none;
-			float:left;
-			width: 18%;
-		}
-
-		nav.vertical li a {
-			color: rgb(68, 0, 163);
-			font-variant: small-caps;
-			font-size: 30px;
-			font-family: 'Trebuchet MS', Helvetica, sans-serif;
-			text-decoration: none;
-			width: 100%;
-			-moz-text-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;
-			-webkit-text-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;
-			text-shadow: rgba(0,0,0, 0.25) 2px 0px 3px;
-		}
-		figure.JuiceHome {
-			margin-top: 125px;
-			float:right;
-			width: 49%;
-
-		}
-		figcaption {
-			letter-spacing: 1px;
-			font-variant: small-caps;
-
-		}
-		#h1 {
-			font-size:200%;
-			font-weight: bold;
-			letter-spacing: 1px;
-
-		}
-		figcaption span {
-			font-size: 400%;
-		}
-		article.openStatement {
-			margin:125px;
-			clear:left;
-			float:left;
-			width:30%;
-		}
-		article.openStatement h1 {
-			font-variant: small-caps;
-			font-weight: bold;
-			font-size: 200%;
-			letter-spacing: 2px;
-
-		}
-		article.openStatement p span {
-			font-size: 400%;
-		}
-		article.openStatement p {
-			letter-spacing: 1px;
-			line-height: 25px;
-		}
-
-		footer {
-			right: 0;
-			bottom: 0;
-			left: 0;
-			padding: .6rem;
-			text-align: center;
-			background-color: white;
-      background: -o-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
-			background: -ms-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
-			background: -moz-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
-			background: -webkit-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
-			background: linear-gradient(to right, rgb(87,5,65), rgb(31, 31, 231));
-			position:fixed;
-			width:100%;
-			height:15px;   // Height of the footer
-			overflow: hidden;
-		}
-
 		footer address {
-			color: rgb(68, 0, 163);
+			color: rgb(255,255, 255);
 			font-size: 80%;
 			font-style: normal;
 			padding: 5px;
 			text-align: center;
-      background: -o-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
-			background: -ms-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
-			background: -moz-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
-			background: -webkit-linear-gradient(left, rgb(87,5,65), rgb(31, 31, 231));
-			background: linear-gradient(to right, rgb(87,5,65), rgb(31, 31, 231));
+			width: 100%;
+			border: 5px solid black;
+      background: -o-linear-gradient(left, rgb(0,0,0), rgb(0, 0, 0));
+			background: -ms-linear-gradient(left, rgb(0,0,0), rgb(0, 0, 0));
+			background: -moz-linear-gradient(left, rgb(0,0,0), rgb(0, 0, 0));
+			background: -webkit-linear-gradient(left, rgb(0,0,0), rgb(0, 0, 0));
+			background: linear-gradient(to right, rgb(0,0,0), rgb(0, 0, 0));
 
 		}
-
-
-		#head {
-			display: block;
-			position:relative;
-			overflow:visible;
-		}
-		#joe {
-			width: 720px;
-		}
-		#juice {
-			display:block;
-			position:relative;
-			margin: 5px;
-			border: 1px solid #777;
-			-moz-border-radius: 30px;
-			-webkit-border-radius: 30px;
-			border-radius: 30px;
-			-moz-box-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;
-			-webkit-box-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;
-			box-shadow: rgba(0, 0, 0, 0.6) 10px 0px 15px;
-			width:50%;
-		     height:50%;
-			left:50px;
-			margin:25px;
-			z-index:1;
-		}
-
-		//Specials Table
 
 		caption {
-			color: rgb(68, 0, 163);
+			color: rgb(49, 49, 48);
 			position: center;
-			font-size: 200%;
-			font-weight:bold;
-			margin-top: 1px;
-			font-variant: small-caps;
-			width: 650px;
-			padding-top: 5px;
-			padding-bottom: 20px;
-		}
-
-		table, th, td {
-			font-variant: small-caps;
-
-		}
-		table tr th a {
-			color: black;
-			text-decoration: none;
-		}
-		table tr th a:visited {
-			color: green;
-		}
-		table {
-			display:block;
-			position:relative;
-			left: 600px;
-			top: -100px;
-			width: 5%;
-			border:none;
-
-		}
-
-		tr {
-			height: 30px;
-
-		}
-
-		th {
-			font-size: 150%;
-			font-weight: bold;
-			text-align:center;
-		}
-
-		td {
-			text-align: center;
-			padding: 20px;
-		}
-
-		td input {
-			display:block;
-			position: relative;
-			font-variant: small-caps;
-			padding : 2px;
-			text-align: center;
-			word-break: keep-all;
-			left: 65px;
-			border-radius: 30%;
-		}
-
-		th, td {
-			vertical-align:middle;
-			border:none;
-		}
-
-		//Form
-
-		form#quickOrder{
-			position: absolute;
-			clear: left;
-			float: left;
-			top: 40em;
-			left: 8em;
-			width: 30%;
-			border-color: inherit;
-			-webkit-box-shadow: none;
-			box-shadow: none;
-			outline:1px dotted black;
-		}
-		#quickOrder legend {
-			padding-bottom: 10px;
-		}
-		#quickfieldset {
-			border: 0;
-
-		}
-		label {
-
-			clear:left;
-			float:left;
-		}
-		legend{
-			font-variant: small-caps;
-
-		}
-		input {
-			clear:left;
-			float:left;
-			width: 75%;
-			background-color: white;
-			background-color: rgba(255, 255, 255, 0.5);
-		}
-		textarea {
-			background-color: white;
-			background-color: rgba(255, 255, 255, 0.5);
-			clear:left;
-			float:left;
-
-		}
-		input[type=submit] {
-			width: 25%;
-		}
-		#itemEnter {
-			height: 200px;
-			width: 75%;
+					
 			}
-		#addInfo {
-			width: 75%;
-			height: 75px;
-		}
-		textarea.addInfo, label.addInfo {
-			clear:right;
-			float:right;
-		}
-		#pickup {
-			font-style:italic;
-		}
-		audio {
-			display: block;
-			position: relative;
-			top: -60px;
-			opacity: .7;
-		}
-		 #ben {
-			display: block;
-			position: relative;
-			top: -60px;
-			color: rgba(0, 0, 0, .7);
-		}
-		#students {
-			color: rgba(0, 0, 0, .7);
-			display: block;
-			position: relative;
-			left: 390px;
-			top: -100px;
-			padding: 50px;
-			width: 35%;
-		}
-		iframe {
-			display: block;
-			position: relative;
-			left: 330px;
-			top: -100px;
-			border-radius: 60px;
-		}
-		#photo1 {
-			-moz-box-shadow: rgba(0, 0, 0, 0.6) 5px 0px 10px;
-			-webkit-box-shadow: rgba(0, 0, 0, 0.6) 5px 0px 10px;
-			box-shadow: rgba(0, 0, 0, 0.6) 5px 0px 10px;
-			width: 250px;
-			height: 105px;
-			border-radius: 60px;
-			float: right;
-		}
-    */
+
+	
+    
 	 </style>
+
    </head>
 
 	 <body onLoad="setInterval('clock()',1000)">
@@ -459,97 +121,91 @@ backgroundAudio.volume=0.3;
 						<li><a href="webproject/about.htm">About</a></li>
 						<li><a href="webproject/photo.htm">Gallery</a></li>
 					-->
-						<li><a href="soundcloud.com/siadic">MUSIC</a></li>
 						
 					</ul>
 			</nav>
-		 <section>
-		 <h1>.</h1>
-			<article class="openStatement">
-				<h2 id="h1"> siadic<img id="photo1" src="webproject/siadicyo.png" alt="Store Front" /></h2>
-				<h2>&#9548;.net&#9548; </h2>
-					<p><span>S</span>iadic
-					</p>
+		
 
-			</article>
-
-			<figure class="JuiceHome">
-					<figcaption>
-				<h1>$$%%%$$$(:(>))</h1>
-					<span>D</span>ates:
-					</figcaption>
-				<img id="juice" src="webproject/words.png" alt="juice"/>
-			</figure>
-
-		</section>
-
-		<table>
-			<caption>_+++_+__+_____&++&+&_&+&+&_^+^_+^+_^+_^+^_+</caption>
+		<table id="pictureTable">
+			<caption>Pic</caption>
 				<tr>
-				<th>=-=-8=-=-=-=8-=9-8=9-89-=8-9=89</th>
+				<th><img id="photo2" src="webproject/siadic_shambs1.jpg"/></th>
+				<!--<th><img id="photo1" src="webproject/siadicyo.png"/></th>-->
+				</tr>
+				<tr>
+				<th></th>
 				</tr>
 					<tr>
-					<td><input title="Click me to add to order" readonly = "readonly" type = "text" onclick="AddToForm1(this)" value = "######@@@@@@" />
+					<td>
 					</td>
 					</tr>
-					<tr>
-					<td><input title="Click me to add to order" readonly = "readonly" type = "text" onclick="AddToForm1(this)" value = "@@@@@RRRRRR^^^^^" />
-					</td>
-					</tr>
-				<tr>
-				<th>^^^^^^$$$$^$$%$%$%$%@##@#@#@#@#</th>
-				</tr>
-					<tr>
-					<td><input title="Click me to add to order" readonly = "readonly" type = "text" onclick="AddToForm1(this)" value = "&&&*******" />
-					</td>
-					</tr>
-				<tr>
-				<td>
-				<input title="Click me to add to order" readonly = "readonly" type = "text" onclick="AddToForm1(this)" value = "%%%%%%%%%%%%%@!@!@!@@!@!@" />
-				</td>
+				
 		</table>
 
-		<form id="quickOrder" name="quickOrder" onsubmit="Ordering()">
-			<fieldset id= "quickfieldset">
-				<legend>##########</legend>
-				<label for="enterName">@@@@@@@@@@@@@########*</label>
-				<input name="enterName" id="enterName" required="required"/>
-				<label for="itemEnter">YYYYYYYYYZZZZZZZZ********</label>
-				<textarea name="itemEnter" id="itemEnter" required="required"></textarea>
-				<label for="addInfo">EEEEEEEEWWWWWWRRRRRRRRRR</label>
-				<textarea name="addInfo" id="addInfo" >
-				</textarea>
-				<input type="submit" value="RET"/>
-				<label id="pickup">___)))))))))______)))________)))</label>
-			</fieldset>
-		</form>
+		<table id="audioTable">
+			<caption>Aud</caption>
+				<tr>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/512933421&color=%23919191&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/336916175&color=%231e1c1c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>	
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455242626&color=%230c0b0f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+		<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455253621&color=%23cdccbe&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>	
+	<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/457630191&color=%23a9a9a9&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></tr>
+	</tr>
+	<tr>
+		<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455247207&color=%2304040c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/305641458&color=%23242618&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>	
+<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/269112556&color=%234d2218&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/217496711&color=%23241814&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/202853610&color=%23040404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+	</tr>
+	<tr>
+<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/227820408&color=%23060606&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/200140149&color=%23040404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/200130792&color=%239cccf8&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/186890130&color=%23040522&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/132311449&color=%23040522&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>				
+	</tr>
+	<tr>
+<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/100913589&color=%23b0a79f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>			
+<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/97767455&color=%23bac4c7&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/79269699&color=%23bac4c7&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/79202893&color=%23140404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+<th><iframe style="border: 0; width: 170px; height: 312px;" src="https://bandcamp.com/EmbeddedPlayer/album=2175142936/size=large/bgcol=232325/linkcol=1c6eb3/tracklist=false/transparent=true/" seamless><a href="http://siadic.bandcamp.com/album/siadic">Siadic by SIADIC</a></iframe></th>
+</tr>
+					<tr>
+					<td>
+					</td>
+					</tr>
+				
+		</table>
 
-				<p id= "students">433&^%^&^^%^&^%@# :)</p>
+		<table id="videoTable">
+			<caption>Vid</caption>
+				<tr>
+				<th><iframe width="560" height="315" src="https://www.youtube.com/embed/qd5Ru_-sHUw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></th>
+				<th><iframe width="560" height="315" src="https://www.youtube.com/embed/PPhMnSJEnys" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></th>
+			</tr>
+					
+				<tr>
+				
+				</tr>
+					<tr>
+					<td>
+					</td>
+					</tr>
+				
+		</table>
 
-		<iframe width="560" height="315" src="https://www.youtube.com/embed/qd5Ru_-sHUw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-<iframe width="560" height="315" src="https://www.youtube.com/embed/PPhMnSJEnys" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-		<audio controls id = "myMusic">
-			<source src="webproject/siadic-field.wav" type="audio/mpeg"/>
-			Your browser does not support the audio element.
-		</audio>
-				<p id="ben">DDDDDDDDSSSSSSSSSAAAAAAAA</p>
-				<p>
-    <a href="http://jigsaw.w3.org/css-validator/check/referer">
-        <img style="border:0;width:88px;height:31px"
-            src="http://jigsaw.w3.org/css-validator/images/vcss"
-            alt="Valid CSS!" />
-    </a>
-</p>
-			<a href="webproject/cross_reference.htm">&^%#%%</a>
+		
+
+
 		 <footer>
 			 <address >
 				 <form name="adam" id="adam">
 				 <input name="joe" id="joe" type="text"/>
 				 </form>
-			  SIADIC &nbsp;&#1216;&nbsp;
-			  World &nbsp;&#1216;&nbsp;
-			  <<<>>> &nbsp;&#1216;&nbsp;
-			  <><>>>$$$$22211113
+			  Siadic &nbsp;&#1216;&nbsp;
+			  Compositions &nbsp;
 			 </address>
 
 		 </footer>
