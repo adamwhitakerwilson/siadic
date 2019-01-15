@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html>
 
-   <head>
- <!--
+<head>
+	<!--
 
       SIADIC Home Page
       Author: Adam Whitaker-Wilson
@@ -12,47 +12,45 @@
       Supporting files:
    -->
 
-	 <meta charset="UTF-8" />
-	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-     <title>siadic.net</title>
-	 <link rel="icon" href="linear.png" type="image/png">
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>siadic.net</title>
+	<link rel="icon" href="linear.png" type="image/png">
 
 	<!-- Description for your page. Shouldn't be longer then 200 characters -->
-	<meta name="description"
-	content="we produce audio compositions"/>
+	<meta name="description" content="we produce audio compositions" />
 
 	<!-- Keywords are used to define your content for search engines. Shouldn't be longer then 1,000 characters -->
-	<meta name="keywords"
-	content="music, bass, canada, british columbia, commercial drive, vancouver"/>
+	<meta name="keywords" content="music, bass, canada, british columbia, commercial drive, vancouver" />
 
-    <script src="modernizr-1.5.js"></script>
-	 <script type="text/javascript">
-function clock(){
+	<script src="modernizr-1.5.js"></script>
+	<script type="text/javascript">
+		function clock() {
 
-months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-var now=new Date().getTime();
-var weekday=new Array(7);
-weekday[0]="Sunday";
-weekday[1]="Monday";
-weekday[2]="Tuesday";
-weekday[3]="Wednesday";
-weekday[4]="Thursday";
-weekday[5]="Friday";
-weekday[6]="Saturday";
+			months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+			var now = new Date().getTime();
+			var weekday = new Array(7);
+			weekday[0] = "Sunday";
+			weekday[1] = "Monday";
+			weekday[2] = "Tuesday";
+			weekday[3] = "Wednesday";
+			weekday[4] = "Thursday";
+			weekday[5] = "Friday";
+			weekday[6] = "Saturday";
 
-var d = new Date(2019,0,11);
-(d.getFullYear());
+			var d = new Date(2019, 0, 11);
+			(d.getFullYear());
 
-var theDate = new Date(2019,0,11);
-theDate.setTime((theDate.getTime()+(60*60)) )
-with (theDate) {
-document.adam.joe.value = ("Last updated: "+weekday[getDay()]+" "+getDate()+" "
-+months[getMonth()]+" "+d.getFullYear()+" | "+now);
-}
-}
-	 </script>
+			var theDate = new Date(2019, 0, 11);
+			theDate.setTime((theDate.getTime() + (60 * 60)))
+			with (theDate) {
+				document.adam.joe.value = ("Last updated: " + weekday[getDay()] + " " + getDate() + " "
+					+ months[getMonth()] + " " + d.getFullYear() + " | " + now);
+			}
+		}
+	</script>
 
-	 <style>
+	<style>
 
 		body * {
 			font-family: halvetica, Geneva, sans-serif;
@@ -108,106 +106,108 @@ document.adam.joe.value = ("Last updated: "+weekday[getDay()]+" "+getDate()+" "
     
 	 </style>
 
-   </head>
+</head>
 
-	 <body onLoad="setInterval('clock()',1000)">
-		 <header>
+<body onLoad="setInterval('clock()',1000)">
+	<header>
 
-		 </header>
+	</header>
 
-			<nav class="horizontal">
-					<ul>
-					<!--	<li><a href="index.html">Home</a></li>
+	<nav class="horizontal">
+		<ul>
+			<!--	<li><a href="index.html">Home</a></li>
 						<li><a href="webproject/about.htm">About</a></li>
 						<li><a href="webproject/photo.htm">Gallery</a></li>
 					-->
-						
-					</ul>
-			</nav>
-		
 
-		<table id="pictureTable">
-			<caption>Pic</caption>
-				<tr>
-				<th><img id="photo2" src="webproject/siadic_shambs1.jpg"/></th>
-				<!--<th><img id="photo1" src="webproject/siadicyo.png"/></th>-->
-				</tr>
-				<tr>
-				<th></th>
-				</tr>
-					<tr>
-					<td>
-					</td>
-					</tr>
-				
-		</table>
+		</ul>
+	</nav>
 
-		<table id="audioTable">
-			<caption>Aud</caption>
-				<tr>
-				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/512933421&color=%23919191&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/336916175&color=%231e1c1c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>	
+
+	<table id="pictureTable">
+		<caption>Pic</caption>
+		<tr>
+			<th><img id="photo2" src="webproject/siadic_shambs1.jpg" /></th>
+			<!--<th><img id="photo1" src="webproject/siadicyo.png"/></th>-->
+		</tr>
+		<tr>
+			<th></th>
+		</tr>
+		<tr>
+			<td>
+			</td>
+		</tr>
+
+	</table>
+
+	<table id="audioTable">
+		<caption>Aud</caption>
+		<tr>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/512933421&color=%23919191&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/336916175&color=%231e1c1c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
 			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455242626&color=%230c0b0f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-		<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455253621&color=%23cdccbe&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>	
-	<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/457630191&color=%23a9a9a9&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></tr>
-	</tr>
-	<tr>
-		<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455247207&color=%2304040c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/305641458&color=%23242618&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>	
-<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/269112556&color=%234d2218&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/217496711&color=%23241814&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/202853610&color=%23040404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-	</tr>
-	<tr>
-<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/227820408&color=%23060606&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/200140149&color=%23040404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/200130792&color=%239cccf8&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/186890130&color=%23040522&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/132311449&color=%23040522&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>				
-	</tr>
-	<tr>
-<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/100913589&color=%23b0a79f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>			
-<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/97767455&color=%23bac4c7&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/79269699&color=%23bac4c7&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/79202893&color=%23140404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-<th><iframe style="border: 0; width: 170px; height: 312px;" src="https://bandcamp.com/EmbeddedPlayer/album=2175142936/size=large/bgcol=232325/linkcol=1c6eb3/tracklist=false/transparent=true/" seamless><a href="http://siadic.bandcamp.com/album/siadic">Siadic by SIADIC</a></iframe></th>
-</tr>
-					<tr>
-					<td>
-					</td>
-					</tr>
-				
-		</table>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455253621&color=%23cdccbe&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/457630191&color=%23a9a9a9&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+		</tr>
+		</tr>
+		<tr>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455247207&color=%2304040c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/305641458&color=%23242618&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/269112556&color=%234d2218&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/217496711&color=%23241814&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/202853610&color=%23040404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+		</tr>
+		<tr>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/227820408&color=%23060606&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/200140149&color=%23040404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/200130792&color=%239cccf8&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/186890130&color=%23040522&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/132311449&color=%23040522&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+		</tr>
+		<tr>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/100913589&color=%23b0a79f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/97767455&color=%23bac4c7&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/79269699&color=%23bac4c7&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/79202893&color=%23140404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
+			<th><iframe style="border: 0; width: 170px; height: 312px;" src="https://bandcamp.com/EmbeddedPlayer/album=2175142936/size=large/bgcol=232325/linkcol=1c6eb3/tracklist=false/transparent=true/"
+				 seamless><a href="http://siadic.bandcamp.com/album/siadic">Siadic by SIADIC</a></iframe></th>
+		</tr>
+		<tr>
+			<td>
+			</td>
+		</tr>
 
-		<table id="videoTable">
-			<caption>Vid</caption>
-				<tr>
-				<th><iframe width="560" height="315" src="https://www.youtube.com/embed/qd5Ru_-sHUw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></th>
-				<th><iframe width="560" height="315" src="https://www.youtube.com/embed/PPhMnSJEnys" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></th>
-			</tr>
-					
-				<tr>
-				
-				</tr>
-					<tr>
-					<td>
-					</td>
-					</tr>
-				
-		</table>
+	</table>
 
-		
+	<table id="videoTable">
+		<caption>Vid</caption>
+		<tr>
+			<th><iframe width="560" height="315" src="https://www.youtube.com/embed/qd5Ru_-sHUw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+				 allowfullscreen></iframe></th>
+			<th><iframe width="560" height="315" src="https://www.youtube.com/embed/PPhMnSJEnys" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+				 allowfullscreen></iframe></th>
+		</tr>
 
+		<tr>
 
-		 <footer>
-			 <address >
-				 <form name="adam" id="adam">
-				 <input name="joe" id="joe" type="text"/>
-				 </form>
-			  Siadic &nbsp;&#1216;&nbsp;
-			  Compositions &nbsp;
-			 </address>
+		</tr>
+		<tr>
+			<td>
+			</td>
+		</tr>
 
-		 </footer>
-	 </body>
+	</table>
+	
+	<footer>
+		<address>
+			<form name="adam" id="adam">
+				<input name="joe" id="joe" type="text" />
+			</form>
+			Siadic &nbsp;&#1216;&nbsp;
+			Compositions &nbsp;
+		</address>
+
+	</footer>
+</body>
+
 </html>
