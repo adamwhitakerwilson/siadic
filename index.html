@@ -6,7 +6,7 @@
 
       SIADIC Home Page
       Author: Adam Whitaker-Wilson
-      Date:   Jan 10th 2019
+      Date:   Jan 22nd 2019
 
       Filename:         index.htm
       Supporting files:
@@ -38,10 +38,10 @@
 			weekday[5] = "Friday";
 			weekday[6] = "Saturday";
 
-			var d = new Date(2019, 0, 11);
+			var d = new Date(2019, 0, 22);
 			(d.getFullYear());
 
-			var theDate = new Date(2019, 0, 11);
+			var theDate = new Date(2019, 0, 22);
 			theDate.setTime((theDate.getTime() + (60 * 60)))
 			with (theDate) {
 				document.adam.joe.value = ("Last updated: " + weekday[getDay()] + " " + getDate() + " "
@@ -182,10 +182,15 @@
 	<table id="videoTable">
 		<caption>Vid</caption>
 		<tr>
+			<th><iframe src="https://player.vimeo.com/video/312842437" width="560" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen 
+			allowfullscreen></iframe></th>>
 			<th><iframe width="560" height="315" src="https://www.youtube.com/embed/qd5Ru_-sHUw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
 				 allowfullscreen></iframe></th>
+			
+		</tr>
+		<tr>		 
 			<th><iframe width="560" height="315" src="https://www.youtube.com/embed/PPhMnSJEnys" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-				 allowfullscreen></iframe></th>
+				allowfullscreen></iframe></th>
 		</tr>
 
 		<tr>
