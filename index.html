@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html class="dark">
 
 <head>
 	<!--
@@ -15,13 +15,16 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>siadic.net</title>
-	<link rel="icon" href="linear.png" type="image/png">
+	<link rel="icon" href="webproject/linear.png" type="image/png">
 
 	<!-- Description for your page. Shouldn't be longer then 200 characters -->
 	<meta name="description" content="we produce audio compositions" />
 
 	<!-- Keywords are used to define your content for search engines. Shouldn't be longer then 1,000 characters -->
 	<meta name="keywords" content="music, bass, canada, british columbia, commercial drive, vancouver" />
+	<meta charset="UTF-8" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<link href="/tailwind.css" rel="stylesheet">
 
 	<script src="modernizr-1.5.js"></script>
 	<script type="text/javascript">
@@ -50,7 +53,7 @@
 		}
 	</script>
 
-	<style>
+	<!-- <style>
 
 		body * {
 			font-family: halvetica, Geneva, sans-serif;
@@ -96,7 +99,7 @@
 
 		}
 
-		caption {
+		p {
 			color: rgb(49, 49, 48);
 			position: center;
 					
@@ -104,7 +107,7 @@
 
 	
     
-	 </style>
+	 </style> -->
 
 </head>
 
@@ -112,100 +115,115 @@
 	<header>
 
 	</header>
-
-	<nav class="horizontal">
-		<ul>
-			<!--	<li><a href="index.html">Home</a></li>
+	<div class="bg-white dark:bg-black">
+		<nav class="horizontal">
+			<ul>
+				<!--	<li><a href="index.html">Home</a></li>
 						<li><a href="webproject/about.htm">About</a></li>
 						<li><a href="webproject/photo.htm">Gallery</a></li>
 					-->
 
-		</ul>
-	</nav>
+			</ul>
+		</nav>
 
 
-	<table id="pictureTable">
-		<caption>Pic</caption>
-		<tr>
+		<table class="table-auto" id="pictureTable">
 			<th><img id="photo2" src="webproject/siadic_shambs1.jpg" /></th>
 			<!--<th><img id="photo1" src="webproject/siadicyo.png"/></th>-->
-		</tr>
-		<tr>
-			<th></th>
-		</tr>
-		<tr>
-			<td>
-			</td>
-		</tr>
+		</table>
 
-	</table>
+		<table id="audioTable" class="h-64 grid grid-rows-3 grid-flow-col gap-4">
+			<tr>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/632783586&color=%23140404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/512933421&color=%23919191&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/336916175&color=%231e1c1c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455242626&color=%230c0b0f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455253621&color=%23cdccbe&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+			</tr>
+			<tr>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/457630191&color=%23a9a9a9&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
 
-	<table id="audioTable">
-		<caption>Aud</caption>
-		<tr>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/632783586&color=%23140404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/512933421&color=%23919191&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/336916175&color=%231e1c1c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455242626&color=%230c0b0f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455253621&color=%23cdccbe&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-		</tr>
-		<tr>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/457630191&color=%23a9a9a9&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
-		
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455247207&color=%2304040c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/305641458&color=%23242618&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/269112556&color=%234d2218&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/217496711&color=%23241814&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-		</tr>
-		<tr>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/202853610&color=%23040404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-		
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/227820408&color=%23060606&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/200140149&color=%23040404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/200130792&color=%239cccf8&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/186890130&color=%23040522&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-		</tr>
-		<tr>
-			<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay" src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/100913589&color=%23b0a79f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe></th>
-			<th><iframe style="border: 0; width: 170px; height: 312px;" src="https://bandcamp.com/EmbeddedPlayer/album=2175142936/size=large/bgcol=232325/linkcol=1c6eb3/tracklist=false/transparent=true/"
-				seamless><a href="http://siadic.bandcamp.com/album/siadic">Siadic by SIADIC</a></iframe></th>
-			<th></th>
-			<th></th>
-			<th></th>
-			
-		</tr>
-		<tr>
-			<td>
-			</td>
-		</tr>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/455247207&color=%2304040c&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/305641458&color=%23242618&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/269112556&color=%234d2218&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/217496711&color=%23241814&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+			</tr>
+			<tr>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/playlists/202853610&color=%23040404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
 
-	</table>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/227820408&color=%23060606&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/200140149&color=%23040404&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/200130792&color=%239cccf8&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/186890130&color=%23040522&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+			</tr>
+			<tr>
+				<th><iframe width="100%" height="300" scrolling="no" frameborder="no" allow="autoplay"
+						src="https://w.soundcloud.com/player/?url=https%3A//api.soundcloud.com/tracks/100913589&color=%23b0a79f&auto_play=false&hide_related=false&show_comments=true&show_user=true&show_reposts=false&show_teaser=true&visual=true"></iframe>
+				</th>
+				<th><iframe style="border: 0; width: 170px; height: 312px;"
+						src="https://bandcamp.com/EmbeddedPlayer/album=2175142936/size=large/bgcol=232325/linkcol=1c6eb3/tracklist=false/transparent=true/"
+						seamless><a href="http://siadic.bandcamp.com/album/siadic">Siadic by SIADIC</a></iframe></th>
+			</tr>
+		</table>
+		<table class="table-auto" id="videoTable">
+			<tr>
+				<th><iframe width="560" height="315" src="https://www.youtube.com/embed/-tdzVPS8Qwc" frameborder="0"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe></th>
+				<th><iframe src="https://player.vimeo.com/video/312842437" width="560" height="315" frameborder="0"
+						webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></th>
 
-	<table id="videoTable">
-		<caption>Vid</caption>
-		<tr>
-			<th><iframe width="560" height="315" src="https://www.youtube.com/embed/-tdzVPS8Qwc" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></th>>
-			<th><iframe src="https://player.vimeo.com/video/312842437" width="560" height="315" frameborder="0" webkitallowfullscreen mozallowfullscreen 
-				allowfullscreen></iframe></th>
-			
-		</tr>
-		<tr>		 
-			<th><iframe width="560" height="315" src="https://www.youtube.com/embed/qd5Ru_-sHUw" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-				allowfullscreen></iframe></th>
-				<th><iframe width="560" height="315" src="https://www.youtube.com/embed/PPhMnSJEnys" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
-					allowfullscreen></iframe></th>
-		</tr>
-		
-		<tr>
+			</tr>
+			<tr>
+				<th><iframe width="560" height="315" src="https://www.youtube.com/embed/qd5Ru_-sHUw" frameborder="0"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe></th>
+				<th><iframe width="560" height="315" src="https://www.youtube.com/embed/PPhMnSJEnys" frameborder="0"
+						allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+						allowfullscreen></iframe></th>
+			</tr>
 
-		</tr>
-		<tr>
-			<td>
-			</td>
-		</tr>
+			<tr>
 
-	</table>
-	
+			</tr>
+			<tr>
+				<td>
+				</td>
+			</tr>
+
+		</table>
+
+	</div>
+
 	<footer>
 		<address>
 			<form name="adam" id="adam">
