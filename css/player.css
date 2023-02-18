@@ -6,11 +6,11 @@
 html {
 	min-height: 100%;
 }
-/* body {
-	background: #eee url("../images/82fLDu4.jpg") no-repeat center;
+ body {
+	background: #eee no-repeat center;
 	background-size: cover;
 	font-family: "Open Sans", sans-serif;
-} */
+} 
 .music-player {
 	position: relative;
 	width: 350px;
