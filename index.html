@@ -70,7 +70,7 @@
 			background-size: cover;
 			background-blend-mode: overlay;
 			backface-visibility: hidden !important;
-			transform: translateZ(0) scale(1,1)!important;
+			transform: translateZ(0) scale(1, 1) !important;
 		}
 
 		body:hover .coupontooltip {
@@ -88,7 +88,7 @@
 			padding: 5px;
 			position: absolute;
 			z-index: 1000;
-			width: 20px;
+			width: 2000px;
 			height: 10px;
 			font-family: Arial, Helvetica, sans-serif;
 			font-style: normal;
@@ -104,10 +104,10 @@
 
 <!-- <body onLoad="setInterval('clock()',1000)"> -->
 
-<body onload="changeBackground()" onclick="openSiadicSoundcloud()">
+<body onload="changeBackground()" onclick="openFullscreen()">
 
 	<div class="couponcode">
-		<span class="coupontooltip">https://soundcloud.com/siadic</span>
+		<span class="coupontooltip">go to soundcloud.com/siadic for music</span>
 	</div>
 	<script type="text/javascript">
 
@@ -190,6 +190,27 @@
 			clearTimeout(timer);
 			timer = setTimeout(mouseStopped, 3000);
 		});
+
+		var elem = document.documentElement;
+		function openFullscreen() {
+			if (elem.requestFullscreen) {
+				elem.requestFullscreen();
+			} else if (elem.webkitRequestFullscreen) { /* Safari */
+				elem.webkitRequestFullscreen();
+			} else if (elem.msRequestFullscreen) { /* IE11 */
+				elem.msRequestFullscreen();
+			}
+		}
+
+		function closeFullscreen() {
+			if (document.exitFullscreen) {
+				document.exitFullscreen();
+			} else if (document.webkitExitFullscreen) { /* Safari */
+				document.webkitExitFullscreen();
+			} else if (document.msExitFullscreen) { /* IE11 */
+				document.msExitFullscreen();
+			}
+		}
 
 		setInterval(changeBackground, 30000); // Change image every 60 seconds
 
