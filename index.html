@@ -15,7 +15,7 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>siadic.net</title>
-	<link rel="icon" href="linear.png" type="image/png">
+	<link rel="icon" href="images/ETCHER.jpg" type="image/jpg">
 
 	<!-- Description for your page. Shouldn't be longer then 200 characters -->
 	<meta name="description" content="we produce audio compositions" />
@@ -23,7 +23,6 @@
 	<!-- Keywords are used to define your content for search engines. Shouldn't be longer then 1,000 characters -->
 	<meta name="keywords" content="music, bass, canada, british columbia, commercial drive, vancouver" />
 
-	<script src="modernizr-1.5.js"></script>
 	<script type="text/javascript">
 		function clock() {
 
@@ -48,69 +47,151 @@
 					+ months[getMonth()] + " " + d.getFullYear() + " | " + now);
 			}
 		}
+
 	</script>
 
 	<style>
-
-		body * {
-			font-family: halvetica, Geneva, sans-serif;
-			font-size: 100%;
-			font-weight: inherit;
-			line-height: 1.2em;
-			list-style: none;
-			margin: 0px;
-			padding: 0px;
-			vertical-align: baseline;
+		html {
+			margin: 0;
+			height: 100%;
+			background-color: black;
 		}
 
-		 body {
-			margin: 0px;
-			padding: 0px;
-			background: url('webproject/linear.png') no-repeat right bottom;
-			background: -o-linear-gradient(left, rgb(0, 0, 0), rgb(0, 0, 0));
-			background: -ms-linear-gradient(left, rgb(0, 0, 0), rgb(0, 0, 0));
-			background: -moz-linear-gradient(left, rgb(0, 0, 0), rgb(0, 0, 0));
-			background: -webkit-linear-gradient(left, rgb(0, 0, 0), rgb(0, 0, 0));
-			background: linear-gradient(to right, rgb(0, 0, 0), rgb(0, 0, 0));
-			/* padding-bottom:50px; */
-		}
-		#joe {
+		body {
+			/* background-image: url('images/LIFTED.jpg'), url('images/ETCHER.jpg'); */
+			/* filter: blur(80px); */
+			/* -webkit-filter: blur(80px); */
+			/* background-size: cover; */
+			background-position: center center;
+			transition: background-image 5s ease-in-out;
+			background-repeat: no-repeat;
 			width: 100%;
-			background-color: rgb(0,0,0);
-			color:azure; 
-			border: 1px solid black;
+			height: 100%;
+			background-size: cover;
+			background-blend-mode: overlay;
 		}
-		footer address {
-			color: rgb(255,255, 255);
-			font-size: 80%;
-			font-style: normal;
+
+		body:hover .coupontooltip {
+			display: block;
+			visibility: visible;
+			opacity: 1;
+		}
+
+
+		.coupontooltip {
+			display: none;
+			color: white;
+			/* background: #C8C8C8; */
+			margin-left: 14px;
 			padding: 5px;
-			text-align: center;
-			width: 100%;
-		
-			/* border: 5px solid black; */
-      /* background: -o-linear-gradient(left, rgb(0,0,0), rgb(0, 0, 0)); */
-			/* background: -ms-linear-gradient(left, rgb(0,0,0), rgb(0, 0, 0));
-			background: -moz-linear-gradient(left, rgb(0,0,0), rgb(0, 0, 0));
-			background: -webkit-linear-gradient(left, rgb(0,0,0), rgb(0, 0, 0));
-			background: linear-gradient(to right, rgb(0,0,0), rgb(0, 0, 0)); */
-
+			position: absolute;
+			z-index: 1000;
+			width: 20px;
+			height: 10px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-style: normal;
+			font-size: 14px;
+			mix-blend-mode: difference;
+			/* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+			opacity: 0;
+			transition: opacity 3s;
 		}
+	</style>
 
-		/* caption {
-			color: rgb(49, 49, 48);
-			position: center;
-					
-			} */
-
-	
-    
-	 </style>
-<link rel="stylesheet" href="css/player.css" type="text/css" />
 </head>
 
-<body onLoad="setInterval('clock()',1000)">
-under construction for now visit our soundcloud --> https://soundcloud.com/siadic
+<!-- <body onLoad="setInterval('clock()',1000)"> -->
+
+<body onload="changeBackground()" onclick="openSiadicSoundcloud()">
+
+	<div class="couponcode">
+		<span class="coupontooltip">https://soundcloud.com/siadic</span>
+	</div>
+	<script type="text/javascript">
+
+		// var imageFiles = [];
+
+		// fetch('static/images')
+		// 	.then(response => response.text())
+		// 	.then(data => {
+		// 		var parser = new DOMParser();
+		// 		var html = parser.parseFromString(data, 'text/html');
+		// 		var links = html.querySelectorAll('a');
+		// 		for (var i = 0; i < links.length; i++) {
+		// 			var href = links[i].getAttribute('href');
+		// 			if (href.endsWith('.jpg') || href.endsWith('.png') || href.endsWith('.gif')) {
+		// 				imageFiles.push(href);
+		// 			}
+		// 		}
+		// 		console.log(imageFiles);
+		// 	})
+		// 	.catch(error => console.log(error));
+
+		var images = ['images/100x.png', 'images/SEE YOURSELF.png', 'images/white walls stain glass.png',
+			'images/RESOURCES.png', 'images/SUNSHINE.png', 'images/LIFTED.png', 'images/ETCHER.png',
+			'images/DRIED BERRIES.png', 'images/BEAN SPROUTS.png', 'images/FLIES OF MATIC.png', 'images/PROTON-K.png'];
+
+
+		var currentIndex = 0;
+		var background = document.querySelector('body');
+
+		function changeBackground() {
+			currentIndex++;
+			if (currentIndex >= images.length) {
+				currentIndex = 0;
+			}
+			var random = Math.floor(Math.random() * images.length);
+			background.style.backgroundImage = "url('" + images[currentIndex] + "'), url('" + images[images.length % random] + "')";
+			console.log("url('" + images[currentIndex] + "'), url('" + images[currentIndex % random] + "')")
+		}
+
+		function setBackground() {
+			background.style.backgroundImage = "url('images/LIFTED.jpg'), url('images/ETCHER.jpg')";
+			background.style.backgroundSize = "cover";
+		}
+
+		function openSiadicSoundcloud() {
+			window.open("https://soundcloud.com/siadic");
+		}
+		function showMessage() {
+
+		}
+
+		var tooltip = document.querySelectorAll('.coupontooltip');
+		var tooltipSingle = document.querySelector('.coupontooltip');
+
+		document.addEventListener('mousemove', fn, false);
+
+		function fn(e) {
+			for (var i = tooltip.length; i--;) {
+				tooltip[i].style.left = e.pageX + 'px';
+				tooltip[i].style.top = e.pageY + 'px';
+			}
+		}
+
+		var timer;
+		var stoppedElement = document.getElementsByName("body");   // store element for faster access
+
+		function mouseStopped() {                                 // the actual function that is called
+			// stoppedElement.innerHTML="Mouse stopped";
+			tooltipSingle.style.display = "none";
+			// tooltipSingle.style.opacity = 0;
+			// tooltipSingle.style.transition = "opacity 3s"
+		}
+
+		window.addEventListener("mousemove", function () {
+			// stoppedElement.innerHTML="Mouse moving";
+			tooltipSingle.style.display = "block";
+			// tooltipSingle.style.visibility = "visible";
+			// tooltipSingle.style.opacity = 1;
+			// tooltipSingle.style.transition = "opacity 3s"
+			clearTimeout(timer);
+			timer = setTimeout(mouseStopped, 3000);
+		});
+
+		setInterval(changeBackground, 30000); // Change image every 60 seconds
+
+	</script>
 </body>
 
 </html>
