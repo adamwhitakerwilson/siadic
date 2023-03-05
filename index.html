@@ -137,7 +137,9 @@
 		var currentIndex = 0;
 		var background = document.querySelector('body');
 
-		function changeBackground() {
+
+		var cb = function () {
+
 			// currentIndex++;
 			// if (currentIndex >= images.length) {
 			// 	currentIndex = 0;
@@ -146,6 +148,11 @@
 			var random2 = Math.floor(Math.random() * (images.length - 1));
 			background.style.backgroundImage = "url('" + images[random1] + "'), url('" + images[random2] + "')";
 			console.log("url('" + images[random1] + "'), url('" + images[random2] + "') " + random1 + " : " + random2)
+			setInterval(cb, 30000); // Change image every 60 seconds
+		}
+
+		function changeBackground() {
+			window.requestAnimationFrame(cb)
 		}
 
 		function setBackground() {
@@ -233,7 +240,7 @@
 			}
 		}
 
-		setInterval(changeBackground, 30000); // Change image every 60 seconds
+		// setInterval(changeBackground, 30000); // Change image every 60 seconds
 
 	</script>
 </body>
