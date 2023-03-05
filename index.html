@@ -138,13 +138,14 @@
 		var background = document.querySelector('body');
 
 		function changeBackground() {
-			currentIndex++;
-			if (currentIndex >= images.length) {
-				currentIndex = 0;
-			}
-			var random = Math.floor(Math.random() * images.length);
-			background.style.backgroundImage = "url('" + images[currentIndex] + "'), url('" + images[images.length % random] + "')";
-			console.log("url('" + images[currentIndex] + "'), url('" + images[currentIndex % random] + "')")
+			// currentIndex++;
+			// if (currentIndex >= images.length) {
+			// 	currentIndex = 0;
+			// }
+			var random1 = Math.floor(Math.random() * (images.length - 1));
+			var random2 = Math.floor(Math.random() * (images.length - 1));
+			background.style.backgroundImage = "url('" + images[random1] + "'), url('" + images[random2] + "')";
+			console.log("url('" + images[random1] + "'), url('" + images[random2] + "') " + random1 + " : " + random2)
 		}
 
 		function setBackground() {
