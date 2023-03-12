@@ -23,33 +23,6 @@
 	<!-- Keywords are used to define your content for search engines. Shouldn't be longer then 1,000 characters -->
 	<meta name="keywords" content="music, bass, canada, british columbia, quebec, montreal, vancouver, sunshine coast" />
 
-	<script type="text/javascript">
-		function clock() {
-
-			months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-			var now = new Date().getTime();
-			var weekday = new Array(7);
-			weekday[0] = "Sunday";
-			weekday[1] = "Monday";
-			weekday[2] = "Tuesday";
-			weekday[3] = "Wednesday";
-			weekday[4] = "Thursday";
-			weekday[5] = "Friday";
-			weekday[6] = "Saturday";
-
-			var d = new Date(2023, 0, 15);
-			(d.getFullYear());
-
-			var theDate = new Date(2023, 0, 15);
-			theDate.setTime((theDate.getTime() + (60 * 60)))
-			with (theDate) {
-				document.adam.joe.value = ("Last updated: " + weekday[getDay()] + " " + getDate() + " "
-					+ months[getMonth()] + " " + d.getFullYear() + " | " + now);
-			}
-		}
-
-	</script>
-
 	<style>
 		html {
 			margin: 0;
