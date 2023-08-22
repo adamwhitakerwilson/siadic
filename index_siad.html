@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<!--
+
+      SIADIC Home Page
+      Author: Adam Whitaker-Wilson
+      Date:   Jan 22nd 2019
+
+      Filename:         index.htm
+      Supporting files:
+   -->
+
+	<meta charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>siadic.net</title>
+	<link rel="icon" href="images/ETCHER.jpg" type="image/jpg">
+
+	<!-- Description for your page. Shouldn't be longer then 200 characters -->
+	<meta name="description" content="we make music" />
+
+	<!-- Keywords are used to define your content for search engines. Shouldn't be longer then 1,000 characters -->
+	<meta name="keywords"
+		content="music, bass, canada, british columbia, quebec, montreal, vancouver, sunshine coast" />
+
+	<style>
+		html {
+			margin: 0;
+			height: 99%;
+			background-color: black;
+		}
+
+		body {
+			/* background-image: url('images/LIFTED.jpg'), url('images/ETCHER.jpg'); */
+			/* filter: blur(80px); */
+			/* -webkit-filter: blur(80px); */
+			/* background-size: cover; */
+			visibility: hidden;
+			background-position: center center;
+			transition: background-image 7s ease-in-out;
+			transition-delay: 1s;
+			background-repeat: no-repeat;
+			width: 99%;
+			height: 99%;
+			background-size: cover;
+			background-blend-mode: overlay;
+			backface-visibility: hidden !important;
+			transform: translateZ(0) scale(1, 1) !important;
+		}
+
+		body:hover .coupontooltip {
+			display: block;
+			visibility: visible;
+			opacity: 1;
+		}
+
+
+		.coupontooltip {
+			display: none;
+			color: white;
+			/* background: #C8C8C8; */
+			margin-left: 14px;
+			padding: 5px;
+			position: absolute;
+			z-index: 1000;
+			width: 2000px;
+			height: 10px;
+			font-family: Arial, Helvetica, sans-serif;
+			font-style: normal;
+			font-size: 14px;
+			mix-blend-mode: difference;
+			/* Fade in tooltip - takes 1 second to go from 0% to 100% opac: */
+			opacity: 0;
+			transition: opacity 3s;
+		}
+	</style>
+
+</head>
+
+<body onload="changeBackground()" onclick="openFullscreen()" onbeforeunload="stopInterval()">
+
+	<div class="couponcode">
+		<span class="coupontooltip">go to soundcloud.com/siadic for music</span>
+	</div>
+	<script type="text/javascript">
+
+		 var images = ['images/dedu1.png', 'images/dedu10.png', 'images/images/dedu2.png',
+		 	'images/dedu3.png', 'images/dedu4.png', 'images/dedu5.png', 'images/dedu6.png',
+		 	'images/dedu7.png', 'images/dedu8.png', 'images/dedu9.png', 'images/100x.jpg', 'images/SEE YOURSELF.jpg', 'images/white walls stain glass.jpg',
+			'images/RESOURCES.jpg', 'images/SUNSHINE.jpg', 'images/LIFTED.jpg', 'images/ETCHER.jpg',
+			'images/DRIED BERRIES.jpg', 'images/BEAN SPROUTS.jpg', 'images/FLIES OF MATIC.jpg', 'images/PROTON-K.jpg'
+		 ];
+		var currentIndex = 0;
+		var background = document.querySelector('body');
+		var requestId;
+
+		// Pre-load the images
+		var imgElements = [];
+		for (var i = 0; i < images.length; i++) {
+			var img = new Image();
+			img.src = images[i];
+			imgElements.push(img);
+		}
+		function startAnimation() {
+			requestId = requestAnimationFrame(changeBackground);
+		}
+
+		function stopAnimation() {
+			cancelAnimationFrame(requestId);
+		}
+		function changeBackground() {
+			var random1 = Math.floor(Math.random() * (images.length - 1));
+			var random2 = Math.floor(Math.random() * (images.length - 1));
+			background.style.visibility = "visible";
+			background.style.backgroundImage = "url('" + imgElements[random1].src + "'), url('" + imgElements[random2].src + "')";
+			console.log("url('" + imgElements[random1].src + "'), url('" + imgElements[random2].src + "') " + random1 + " : " + random2)
+			intervalId = setInterval(startAnimation, 30000);
+		}
+
+
+		function startInterval() {
+			changeBackground()
+			intervalId = setInterval(changeBackground, 30000); // Change image every 60 seconds
+		}
+
+		function stopInterval() {
+			clearInterval(intervalId);
+		}
+
+		function setBackground() {
+			background.style.backgroundImage = "url('images/dedu1.png'), url('images/dedu2.png')";
+			background.style.backgroundSize = "cover";
+		}
+
+		function openSiadicSoundcloud() {
+			window.open("https://soundcloud.com/siadic");
+		}
+		function showMessage() {
+
+		}
+
+		var tooltip = document.querySelectorAll('.coupontooltip');
+		var tooltipSingle = document.querySelector('.coupontooltip');
+
+		document.addEventListener('mousemove', fn, false);
+
+		function fn(e) {
+			for (var i = tooltip.length; i--;) {
+				tooltip[i].style.left = e.pageX + 'px';
+				tooltip[i].style.top = e.pageY + 'px';
+			}
+		}
+
+		var timer;
+		var stoppedElement = document.getElementsByName("body");   // store element for faster access
+
+		function mouseStopped() {                                 // the actual function that is called
+			tooltipSingle.style.display = "none";
+		}
+
+		window.addEventListener("mousemove", function () {
+			tooltipSingle.style.display = "block";
+			clearTimeout(timer);
+			timer = setTimeout(mouseStopped, 3000);
+		});
+
+		var elem = document.body;
+		function openFullscreen() {
+
+			var el = document.documentElement,
+				rfs = el.requestFullscreen
+					|| el.webkitRequestFullScreen
+					|| el.mozRequestFullScreen
+					|| el.msRequestFullscreen
+				;
+
+			if (rfs) { // Native full screen.
+				rfs.call(el);
+			} else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
+				var wscript = new ActiveXObject("WScript.Shell");
+				if (wscript !== null) {
+					wscript.SendKeys("{F11}");
+				}
+			}
+
+		}
+
+		function closeFullscreen() {
+			if (document.exitFullscreen) {
+				document.exitFullscreen();
+			} else if (document.webkitExitFullscreen) { /* Safari */
+				document.webkitExitFullscreen();
+			} else if (document.msExitFullscreen) { /* IE11 */
+				document.msExitFullscreen();
+			}
+		}
+
+		document.addEventListener('fullscreenchange', (event) => {
+			if (document.fullscreenElement) {
+				console.log('Entered fullscreen:', document.fullscreenElement);
+			} else {
+				console.log('Exited fullscreen.');
+			}
+		});
+
+	</script>
+</body>
+
+</html>

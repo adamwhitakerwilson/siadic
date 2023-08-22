@@ -15,7 +15,7 @@
 	<meta charset="UTF-8" />
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<title>siadic.net</title>
-	<link rel="icon" href="images/ETCHER.jpg" type="image/jpg">
+	<link rel="icon" href="images/ETCHER.webp" type="image/webp">
 
 	<!-- Description for your page. Shouldn't be longer then 200 characters -->
 	<meta name="description" content="we make music" />
@@ -32,7 +32,7 @@
 		}
 
 		body {
-			/* background-image: url('images/LIFTED.jpg'), url('images/ETCHER.jpg'); */
+			/* background-image: url('images/LIFTED.webp'), url('images/ETCHER.webp'); */
 			/* filter: blur(80px); */
 			/* -webkit-filter: blur(80px); */
 			/* background-size: cover; */
@@ -81,19 +81,18 @@
 <body onload="changeBackground()" onclick="openFullscreen()" onbeforeunload="stopInterval()">
 
 	<div class="couponcode">
-		<span class="coupontooltip">go to soundcloud.com/siadic for music</span>
+		<span class="coupontooltip">click for fullscreen</span>
 	</div>
 	<script type="text/javascript">
 
-		 var images = ['images/dedu1.png', 'images/dedu10.png', 'images/images/dedu2.png',
-		 	'images/dedu3.png', 'images/dedu4.png', 'images/dedu5.png', 'images/dedu6.png',
-		 	'images/dedu7.png', 'images/dedu8.png', 'images/dedu9.png', 'images/100x.jpg', 'images/SEE YOURSELF.jpg', 'images/white walls stain glass.jpg',
-			'images/RESOURCES.jpg', 'images/SUNSHINE.jpg', 'images/LIFTED.jpg', 'images/ETCHER.jpg',
-			'images/DRIED BERRIES.jpg', 'images/BEAN SPROUTS.jpg', 'images/FLIES OF MATIC.jpg', 'images/PROTON-K.jpg'
-		 ];
+		var images = ['images/dedu1.webp', 'images/dedu10.webp', 'images/images/dedu2.webp',
+			'images/dedu3.webp', 'images/dedu4.webp', 'images/dedu5.webp', 'images/dedu6.webp',
+			'images/dedu7.webp', 'images/dedu8.webp', 'images/dedu9.webp', 'images/100x.webp', 'images/SEE YOURSELF.webp', 'images/white walls stain glass.webp',
+			'images/RESOURCES.webp', 'images/SUNSHINE.webp', 'images/LIFTED.webp', 'images/ETCHER.webp',
+			'images/DRIED BERRIES.webp', 'images/BEAN SPROUTS.webp', 'images/FLIES OF MATIC.webp', 'images/PROTON-K.webp'
+		];
 		var currentIndex = 0;
 		var background = document.querySelector('body');
-		var requestId;
 
 		// Pre-load the images
 		var imgElements = [];
@@ -102,26 +101,24 @@
 			img.src = images[i];
 			imgElements.push(img);
 		}
-		function startAnimation() {
-			requestId = requestAnimationFrame(changeBackground);
+
+		function changeBackground() {
+			var random1 = Math.floor(Math.random() * images.length);
+			var random2 = Math.floor(Math.random() * images.length);
+			while (random1 === random2) {
+				random2 = Math.floor(Math.random() * images.length); // Ensure the two random images are different
+			}
+			background.style.visibility = "visible";
+			background.style.backgroundImage = "url('" + images[random1] + "'), url('" + images[random2] + "')";
+			console.log("url('" + images[random1] + "'), url('" + images[random2] + "') " + random1 + " : " + random2);
 		}
 
-		function stopAnimation() {
-			cancelAnimationFrame(requestId);
-		}
-		function changeBackground() {
-			var random1 = Math.floor(Math.random() * (images.length - 1));
-			var random2 = Math.floor(Math.random() * (images.length - 1));
-			background.style.visibility = "visible";
-			background.style.backgroundImage = "url('" + imgElements[random1].src + "'), url('" + imgElements[random2].src + "')";
-			console.log("url('" + imgElements[random1].src + "'), url('" + imgElements[random2].src + "') " + random1 + " : " + random2)
-			intervalId = setInterval(startAnimation, 30000);
-		}
+		// Initiate the interval for changing backgrounds:
+		var intervalId = setInterval(changeBackground, 30000);
 
 
 		function startInterval() {
 			changeBackground()
-			intervalId = setInterval(changeBackground, 30000); // Change image every 60 seconds
 		}
 
 		function stopInterval() {
@@ -129,12 +126,12 @@
 		}
 
 		function setBackground() {
-			background.style.backgroundImage = "url('images/dedu1.png'), url('images/dedu2.png')";
+			background.style.backgroundImage = "url('images/dedu1.webp'), url('images/dedu2.webp')";
 			background.style.backgroundSize = "cover";
 		}
 
 		function openSiadicSoundcloud() {
-			window.open("https://soundcloud.com/siadic");
+			window.open("click for fullscreen");
 		}
 		function showMessage() {
 
