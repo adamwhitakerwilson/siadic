@@ -164,23 +164,17 @@
 
 		var elem = document.body;
 		function openFullscreen() {
-
-			var el = document.documentElement,
-				rfs = el.requestFullscreen
-					|| el.webkitRequestFullScreen
-					|| el.mozRequestFullScreen
-					|| el.msRequestFullscreen
-				;
-
-			if (rfs) { // Native full screen.
-				rfs.call(el);
-			} else if (typeof window.ActiveXObject !== "undefined") { // Older IE.
-				var wscript = new ActiveXObject("WScript.Shell");
-				if (wscript !== null) {
-					wscript.SendKeys("{F11}");
-				}
+			if (document.documentElement.requestFullscreen) {
+				document.documentElement.requestFullscreen();
+			} else if (document.documentElement.webkitRequestFullScreen) { // For Safari
+				document.documentElement.webkitRequestFullScreen();
+			} else if (document.documentElement.mozRequestFullScreen) { // For old Firefox
+				document.documentElement.mozRequestFullScreen();
+			} else if (document.documentElement.msRequestFullscreen) { // For IE
+				document.documentElement.msRequestFullscreen();
+			} else {
+				console.warn("Fullscreen API is not supported on this browser!");
 			}
-
 		}
 
 		function closeFullscreen() {
