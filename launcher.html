@@ -7,7 +7,8 @@
     <title>siadic.net</title>
     <link rel="icon" href="images/ETCHER.webp" type="image/webp">
     <meta name="description" content="we make music" />
-    <meta name="keywords" content="music, bass, canada, british columbia, quebec, montreal, vancouver, sunshine coast" />
+    <meta name="keywords"
+        content="music, bass, canada, british columbia, quebec, montreal, vancouver, sunshine coast" />
 
     <style>
         html {
@@ -25,15 +26,17 @@
             background-size: cover;
             opacity: 0;
             transition: opacity 3s ease-in-out;
-            cursor: none; /* Hide cursor by default */
+            cursor: none;
+            /* Hide cursor by default */
         }
 
         body.fade-in {
             opacity: 1;
         }
-        
+
         body.cursor-visible {
-            cursor: auto; /* Show cursor when this class is present */
+            cursor: auto;
+            /* Show cursor when this class is present */
         }
 
         #image-container-wrapper {
@@ -86,9 +89,11 @@
             0% {
                 transform: scale(1);
             }
+
             50% {
                 transform: scale(1.05);
             }
+
             100% {
                 transform: scale(1);
             }
@@ -123,19 +128,19 @@
     </div>
 
     <script type="text/javascript">
-       var images = ['images/dedu1.webp', 'images/dedu10.webp', 'images/dedu2.webp',
-			'images/dedu3.webp', 'images/dedu4.webp', 'images/dedu5.webp', 'images/dedu6.webp',
-			'images/dedu7.webp', 'images/dedu8.webp', 'images/dedu9.webp', 'images/100x.webp', 'images/SEE YOURSELF.webp', 'images/white walls stain glass.webp',
-			'images/RESOURCES.webp', 'images/SUNSHINE.webp', 'images/LIFTED.webp', 'images/ETCHER.webp',
-			'images/DRIED BERRIES.webp', 'images/BEAN SPROUTS.webp', 'images/FLIES OF MATIC.webp', 'images/PROTON-K.webp'
-		];
+        var images = ['images/dedu1.webp', 'images/dedu10.webp', 'images/dedu2.webp',
+            'images/dedu3.webp', 'images/dedu4.webp', 'images/dedu5.webp', 'images/dedu6.webp',
+            'images/dedu7.webp', 'images/dedu8.webp', 'images/dedu9.webp', 'images/100x.webp', 'images/SEE YOURSELF.webp', 'images/white walls stain glass.webp',
+            'images/RESOURCES.webp', 'images/SUNSHINE.webp', 'images/LIFTED.webp', 'images/ETCHER.webp',
+            'images/DRIED BERRIES.webp', 'images/BEAN SPROUTS.webp', 'images/FLIES OF MATIC.webp', 'images/PROTON-K.webp'
+        ];
 
         var currentIndex = 0;
         var intervalId;
         var imageContainers = [];
         var cursorVisibilityTimer;
 
-		// Pre-load images
+        // Pre-load images
         var imgElements = [];
         for (var i = 0; i < images.length; i++) {
             var img = new Image();
@@ -167,6 +172,20 @@
         // --- Audio Visibility Functions ---
 
         var audioVisibilityTimer;
+
+        function showAudioPlayer() {
+            audioWrapper.classList.add('visible');
+            resetAudioVisibilityTimer();
+        }
+
+        function hideAudioPlayer() {
+            audioWrapper.classList.remove('visible');
+        }
+
+        function resetAudioVisibilityTimer() {
+            clearTimeout(audioVisibilityTimer);
+            audioVisibilityTimer = setTimeout(hideAudioPlayer, 3000);
+        }
 
         function setupAudioVisibility() {
             var audioWrapper = document.querySelector('.audio-wrapper');
@@ -203,22 +222,22 @@
         }
 
         function changeBackground() {
-           var nextIndex1 = Math.floor(Math.random() * images.length);
-			var nextIndex2 = Math.floor(Math.random() * images.length);
-			while (nextIndex1 === nextIndex2) {
-				nextIndex2 = Math.floor(Math.random() * images.length);
-			}
+            var nextIndex1 = Math.floor(Math.random() * images.length);
+            var nextIndex2 = Math.floor(Math.random() * images.length);
+            while (nextIndex1 === nextIndex2) {
+                nextIndex2 = Math.floor(Math.random() * images.length);
+            }
 
-			var nextContainer = imageContainers.find(c => !c.classList.contains('active'));
-			var currentContainer = imageContainers.find(c => c.classList.contains('active'));
+            var nextContainer = imageContainers.find(c => !c.classList.contains('active'));
+            var currentContainer = imageContainers.find(c => c.classList.contains('active'));
 
-			nextContainer.style.backgroundImage = `url('${images[nextIndex1]}'), url('${images[nextIndex2]}')`;
+            nextContainer.style.backgroundImage = `url('${images[nextIndex1]}'), url('${images[nextIndex2]}')`;
 
-			if (currentContainer) {
-				currentContainer.classList.remove('active');
-				currentContainer.style.zIndex = "0";
-			}
-			nextContainer.classList.add('active');
+            if (currentContainer) {
+                currentContainer.classList.remove('active');
+                currentContainer.style.zIndex = "0";
+            }
+            nextContainer.classList.add('active');
         }
 
         function stopInterval() {
@@ -259,7 +278,7 @@
             fullscreenBtn.onclick = openFullscreen;
             audioWrapper.appendChild(fullscreenBtn);
         }
-		// audio player
+        // audio player
         var audioFolder = "audio/";
         var audioFiles = ['Abandoning Habits.mp3', 'Immarsat-4 F3.mp3', 'Philae.mp3', 'Vega 2.mp3'];
         var audioQueue = shuffleArray([...audioFiles]);
@@ -273,7 +292,7 @@
             return array;
         }
 
-		audioElement.addEventListener('ended', function () {
+        audioElement.addEventListener('ended', function () {
             if (audioQueue.length === 0) {
                 audioQueue = shuffleArray([...audioFiles]);
             }
@@ -281,7 +300,7 @@
             audioElement.play();
         });
 
-		function playAudio() {
+        function playAudio() {
             audioElement.play();
             resetAudioVisibilityTimer();
         }
