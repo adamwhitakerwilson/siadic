@@ -12,45 +12,53 @@
     <style>
         html {
             margin: 0;
-            height: 100%;  /* Use 100% for full viewport height */
+            height: 100%;
             background-color: black;
-            overflow: hidden; /* Prevent scrollbars during transitions */
+            overflow: hidden;
         }
 
         body {
-            visibility: hidden; /* Start hidden for the initial fade-in */
             background-position: center center;
             background-repeat: no-repeat;
-            width: 100%;  /* Full width */
-            height: 100%;  /* Full height */
+            width: 100%;
+            height: 100%;
             background-size: cover;
-            background-blend-mode: overlay;
-            /*  Removed backface-visibility and transform for smoother transitions in some browsers  */
-            opacity: 0; /* Start with 0 opacity for fade-in */
-            transition: background-image 15s ease-in-out, opacity 3s ease-in-out; /* Slower background transition, initial fade-in */
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
         }
 
+        body.fade-in {
+            opacity: 1;
+        }
 
-		body.fade-in {
-			opacity: 1; /* Fade in the body */
-		}
-
-        .image-container {
-            position: absolute; /* Absolute positioning for layering */
+        #image-container-wrapper {
+            position: absolute;
             top: 0;
             left: 0;
             width: 100%;
             height: 100%;
-            opacity: 0; /* Start hidden */
+            z-index: 0;
+        }
+
+        .image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            transition: opacity 15s ease-in-out; /* Slow opacity transition */
-            z-index: 1; /* Ensure images are behind the tooltip and audio controls */
+            transition: opacity 15s ease-in-out;
+            z-index: 0;
+            background-blend-mode: overlay;
         }
-		.image-container.active {
-			opacity: 1;
-		}
+
+        .image-container.active {
+            opacity: 1;
+            z-index: 1;
+        }
 
         .coupontooltip {
             color: white;
@@ -58,35 +66,37 @@
             padding: 5px;
             position: absolute;
             z-index: 1000;
-            width: auto;  /* Let width adjust to content */
-            white-space: nowrap; /* Prevent text wrapping */
+            width: auto;
+            white-space: nowrap;
             font-family: Arial, Helvetica, sans-serif;
             font-style: normal;
             font-size: 14px;
             mix-blend-mode: difference;
-            opacity: 0; /* Start hidden */
-            transition: opacity 1s ease-in-out; /*  Fade-in for the tooltip */
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
 			pointer-events: none; /* make tooltip text not clickable */
         }
 
         body:hover .coupontooltip {
-            opacity: 1; /* Show on hover */
+            opacity: 1;
         }
+
 
         .audio-wrapper {
             background-color: transparent;
-            opacity: 0.8; /*  Slightly visible, but not distracting */
+            opacity: 0; /*  Start hidden */
             position: fixed;
             bottom: 10px;
             right: 10px;
             z-index: 1002;
+            transition: opacity 0.5s ease-in-out; /*  Fade-in/out */
         }
 
-        .audio-wrapper audio {
-            background-color: transparent;
+        .audio-wrapper.visible { /*  Class to show the audio player */
+            opacity: 0.8;
         }
 
-        /*  Added a subtle pulse animation to draw slight attention */
+
         @keyframes pulse {
             0% {
                 transform: scale(1);
@@ -100,7 +110,7 @@
         }
 
         .audio-wrapper button {
-           animation: pulse 5s infinite ease-in-out; /*  Apply the pulse animation */
+           animation: pulse 5s infinite ease-in-out;
            border: none;
            background: rgba(255,255,255,0.2);
            color: white;
@@ -114,6 +124,7 @@
 		.audio-wrapper input[type="range"]{
 			accent-color: white;
 		}
+
     </style>
 </head>
 
@@ -123,12 +134,11 @@
         <span class="coupontooltip">click for fullscreen, hit spacebar to play/pause music, use up/down for volume</span>
     </div>
 
-    <!--  Image containers will be added here by JavaScript -->
-	<div id="image-container-wrapper">
-	</div>
+    <div id="image-container-wrapper">
+        <!-- Image containers are added here by JavaScript -->
+    </div>
 
     <script type="text/javascript">
-
 		var images = ['images/dedu1.webp', 'images/dedu10.webp', 'images/dedu2.webp',
 			'images/dedu3.webp', 'images/dedu4.webp', 'images/dedu5.webp', 'images/dedu6.webp',
 			'images/dedu7.webp', 'images/dedu8.webp', 'images/dedu9.webp', 'images/100x.webp', 'images/SEE YOURSELF.webp', 'images/white walls stain glass.webp',
@@ -140,7 +150,7 @@
 		var intervalId;
 		var imageContainers = [];
 
-		// Pre-load images (good practice for smoother transitions)
+		// Pre-load images
 		var imgElements = [];
 		for (var i = 0; i < images.length; i++) {
 			var img = new Image();
@@ -150,14 +160,16 @@
 
 		function init() {
 			createImageContainers();
-			changeBackground();  // Initial background
-			intervalId = setInterval(changeBackground, 30000); // Start the cycle
-			document.body.classList.add('fade-in'); // fade in the body
+			changeBackground();
+			intervalId = setInterval(changeBackground, 30000);
+			document.body.classList.add('fade-in');
+            setupAudioVisibility(); // Call the new function
 		}
 
+
 		function createImageContainers() {
-			var wrapper = document.getElementById('image-container-wrapper'); // the div that holds the image containers
-			for (var i = 0; i < 2; i++) { // Create two containers for cross-fading
+			var wrapper = document.getElementById('image-container-wrapper');
+			for (var i = 0; i < 2; i++) {
 				var container = document.createElement('div');
 				container.classList.add('image-container');
 				wrapper.appendChild(container);
@@ -172,16 +184,14 @@
 				nextIndex2 = Math.floor(Math.random() * images.length);
 			}
 
-			// Get the next inactive container
 			var nextContainer = imageContainers.find(c => !c.classList.contains('active'));
 			var currentContainer = imageContainers.find(c => c.classList.contains('active'));
 
-			// Set the new background on the next container
 			nextContainer.style.backgroundImage = `url('${images[nextIndex1]}'), url('${images[nextIndex2]}')`;
 
-			// Fade in the next container, and fade out the current one (if it exists)
-			if(currentContainer) {
+			if (currentContainer) {
 				currentContainer.classList.remove('active');
+				currentContainer.style.zIndex = "0";
 			}
 			nextContainer.classList.add('active');
 		}
@@ -190,9 +200,6 @@
 			clearInterval(intervalId);
 		}
 
-		// ... (rest of your functions - openSiadicSoundcloud, showMessage, etc. - are unchanged)
-
-		// Tooltip positioning (simplified)
 		var tooltip = document.querySelector('.coupontooltip');
 
 		document.addEventListener('mousemove', function(e) {
@@ -202,13 +209,11 @@
 
 		var timer;
 		window.addEventListener("mousemove", function () {
-			tooltip.style.display = "block";  // Or use opacity: 1 for consistency
+			tooltip.style.display = "block";
 			clearTimeout(timer);
 			timer = setTimeout(function() { tooltip.style.display = 'none'; }, 3000);
 		});
 
-
-		var elem = document.body; //  Redundant, but kept for your original logic
 		function openFullscreen() {
 			if (document.documentElement.requestFullscreen) {
 				document.documentElement.requestFullscreen();
@@ -222,19 +227,19 @@
 				console.warn("Fullscreen API is not supported");
 			}
 		}
-	// ... (rest of your functions - closeFullscreen, audio player, keydown event listener - are unchanged)
 
-	// audio player
+		// audio player
 
-		var audioFolder = "audio/"; // Replace with the path to your audio folder
-		var audioFiles = ['Abandoning Habits.mp3', 'Immarsat-4 F3.mp3', 'Philae.mp3', 'Vega 2.mp3']; // Fill in with the names of your audio files
+		var audioFolder = "audio/";
+		var audioFiles = ['Abandoning Habits.mp3', 'Immarsat-4 F3.mp3', 'Philae.mp3', 'Vega 2.mp3'];
 		var audioQueue = shuffleArray([...audioFiles]);
 		var audioElement = new Audio(audioFolder + audioQueue.pop());
+        var audioVisibilityTimer; // Declare the timer variable
 
 		function shuffleArray(array) {
 			for (var i = array.length - 1; i > 0; i--) {
 				var j = Math.floor(Math.random() * (i + 1));
-				[array[i], array[j]] = [array[j], array[i]]; // swap
+				[array[i], array[j]] = [array[j], array[i]];
 			}
 			return array;
 		}
@@ -247,13 +252,14 @@
 			audioElement.play();
 		});
 
-		// Functions to control the audio player
 		function playAudio() {
 			audioElement.play();
+            resetAudioVisibilityTimer(); //reset on player interaction
 		}
 
 		function pauseAudio() {
 			audioElement.pause();
+            resetAudioVisibilityTimer();
 		}
 
 		function nextTrack() {
@@ -262,20 +268,44 @@
 			}
 			audioElement.src = audioFolder + audioQueue.pop();
 			audioElement.play();
+            resetAudioVisibilityTimer();
 		}
 
-		function adjustVolume(volumeValue) { // 0.0 to 1.0
+		function adjustVolume(volumeValue) {
 			audioElement.volume = volumeValue;
+            resetAudioVisibilityTimer();
 		}
+
+        // New function to handle audio player visibility
+        function setupAudioVisibility() {
+            var audioWrapper = document.querySelector('.audio-wrapper');
+
+            function showAudioPlayer() {
+                audioWrapper.classList.add('visible');
+                resetAudioVisibilityTimer(); // Restart the timer whenever it's shown
+            }
+
+            function hideAudioPlayer() {
+                audioWrapper.classList.remove('visible');
+            }
+
+           function resetAudioVisibilityTimer() {
+                clearTimeout(audioVisibilityTimer);
+                audioVisibilityTimer = setTimeout(hideAudioPlayer, 3000); // Hide after 3 seconds
+            }
+
+            // Event listeners for mouse and keyboard activity
+            document.addEventListener('mousemove', showAudioPlayer);
+            document.addEventListener('keydown', showAudioPlayer);
+            //initial display of player on page load:
+            showAudioPlayer();
+        }
 
 		var count = 1;
 
 		document.addEventListener('keydown', function (event) {
-			//const audio = document.getElementById('myAudio');
-			const volumeIncrement = 0.1; // Adjusts the volume by 10% each time
+			const volumeIncrement = 0.1;
 
-			// Check if the pressed key is the spacebar (key code 32)
-		
 			if (event.keyCode === 32) {
 				if(count == 1){
 					playAudio();
@@ -284,52 +314,31 @@
 					count = 0;
 				}
 				count = count + 1;
-				// Toggle play/pause
-				// if (audio.paused) {
-				// 	audio.play();
-				// } else {
-				// 	audio.pause();
-				// }
-
-				// Prevent the default action to avoid any side effects
-				// (like scrolling the page if it's bigger than the viewport)
 				event.preventDefault();
 			}
 
 			switch(event.key) {
-        case ' ':
-        // case 'Spacebar': // This is for some older browsers
-        //     // Toggle play/pause
-        //     if (audio.paused) {
-        //         audio.play();
-        //     } else {
-        //         audio.pause();
-        //     }
+			case ' ':
+				event.preventDefault();
+				break;
 
-        //     // Prevent the default action
-        //     event.preventDefault();
-        //     break;
-        
-        case 'ArrowUp':
-            // Increase volume
-            if (audioElement.volume + volumeIncrement <= 1) {
-                audioElement.volume += volumeIncrement;
-            } else {
-                audioElement.volume = 1; // Ensure volume doesn't exceed 1
-            }
-            break;
+			case 'ArrowUp':
+				if (audioElement.volume + volumeIncrement <= 1) {
+					audioElement.volume += volumeIncrement;
+				} else {
+					audioElement.volume = 1;
+				}
+				break;
 
-        case 'ArrowDown':
-            // Decrease volume
-            if (audioElement.volume - volumeIncrement >= 0) {
-                audioElement.volume -= volumeIncrement;
-            } else {
-                audioElement.volume = 0; // Ensure volume doesn't go below 0
-            }
-            break;
-		}
+			case 'ArrowDown':
+				if (audioElement.volume - volumeIncrement >= 0) {
+					audioElement.volume -= volumeIncrement;
+				} else {
+					audioElement.volume = 0;
+				}
+				break;
+			}
 		});
-
     </script>
 
     <div class="audio-wrapper">
