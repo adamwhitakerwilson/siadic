@@ -257,16 +257,35 @@
         // --- Fullscreen ---
 
         function openFullscreen() {
-            if (document.documentElement.requestFullscreen) {
-                document.documentElement.requestFullscreen();
-            } else if (document.documentElement.webkitRequestFullScreen) { // Safari
-                document.documentElement.webkitRequestFullScreen();
-            } else if (document.documentElement.mozRequestFullScreen) { // Old Firefox
-                document.documentElement.mozRequestFullScreen();
-            } else if (document.documentElement.msRequestFullscreen) { // IE
-                document.documentElement.msRequestFullscreen();
-            } else {
-                console.warn("Fullscreen API is not supported");
+            try {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.webkitRequestFullScreen) { // Safari
+                    document.documentElement.webkitRequestFullScreen();
+                } else if (document.documentElement.mozRequestFullScreen) { // Old Firefox
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.msRequestFullscreen) { // IE
+                    document.documentElement.msRequestFullscreen();
+                } else {
+                    console.warn("Fullscreen API is not supported");
+                }
+            } catch (error) {
+                console.warn("Fullscreen request failed:", error);
+                // Attempt fallback methods IMMEDIATELY within the catch block.
+                try {
+                    if (document.documentElement.webkitRequestFullScreen) { // Safari
+                        document.documentElement.webkitRequestFullScreen();
+                    } else if (document.documentElement.mozRequestFullScreen) { // Old Firefox
+                        document.documentElement.mozRequestFullScreen();
+                    } else if (document.documentElement.msRequestFullscreen) { // IE
+                        document.documentElement.msRequestFullscreen();
+                    } else {
+                        console.warn("Fullscreen API is not supported");
+                    }
+                }
+                catch (error2) {
+                    console.warn("Fullscreen request retry failed:", error2);
+                }
             }
         }
 
