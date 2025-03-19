@@ -1,22 +1,51 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>SIADIC</title>
+    <title>Fullscreen Test</title>
     <style>
-        html, body {
-            margin: 0;
-            padding: 0;
-            height: 100%;
-            overflow: hidden;
-        }
-        iframe {
-            width: 100%;
-            height: 100%;
-            border: none;
+        body { background-color: black; }
+        button {
+            background-color: white;
+            color: black;
+            padding: 10px 20px;
+            cursor: pointer;
         }
     </style>
 </head>
 <body>
-    <iframe src="launcher.html" allowfullscreen></iframe>
+    <button id="fullscreenBtn">Fullscreen</button>
+    <script>
+        function openFullscreen() {
+            try {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.webkitRequestFullScreen) {
+                    document.documentElement.webkitRequestFullScreen();
+                } else if (document.documentElement.mozRequestFullScreen) {
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.msRequestFullscreen) {
+                    document.documentElement.msRequestFullscreen();
+                } else {
+                    console.warn("Fullscreen API is not supported");
+                }
+            } catch (error) {
+                console.warn("Fullscreen request failed:", error);
+                // Fallback (still within the try...catch)
+                try {
+                    if (document.documentElement.webkitRequestFullScreen) {
+                        document.documentElement.webkitRequestFullScreen();
+                    } else if (document.documentElement.mozRequestFullScreen) {
+                        document.documentElement.mozRequestFullScreen();
+                    } else if (document.documentElement.msRequestFullscreen) {
+                        document.documentElement.msRequestFullscreen();
+                    }
+                } catch (error2) {
+                    console.warn("Fallback failed", error2);
+                }
+            }
+        }
+
+        document.getElementById('fullscreenBtn').onclick = openFullscreen;
+    </script>
 </body>
 </html>
