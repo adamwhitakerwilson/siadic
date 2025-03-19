@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta https-equiv="X-UA-Compatible" content="IE=edge">
+    <title>siadic.net</title>
+    <link rel="icon" href="images/ETCHER.webp" type="image/webp">
+    <meta name="description" content="we make music" />
+    <meta name="keywords"
+        content="music, bass, canada, british columbia, quebec, montreal, vancouver, sunshine coast" />
+
+    <style>
+        html {
+            margin: 0;
+            height: 100%;
+            background-color: black;
+            overflow: hidden;
+        }
+
+        body {
+            background-position: center center;
+            background-repeat: no-repeat;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            opacity: 0;
+            transition: opacity 3s ease-in-out;
+            cursor: none;
+            /* Hide cursor by default */
+        }
+
+        body.fade-in {
+            opacity: 1;
+        }
+
+        body.cursor-visible {
+            cursor: auto;
+            /* Show cursor when this class is present */
+        }
+
+        #image-container-wrapper {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+
+        .image-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            transition: opacity 15s ease-in-out;
+            z-index: 0;
+            background-blend-mode: overlay;
+        }
+
+        .image-container.active {
+            opacity: 1;
+            z-index: 1;
+        }
+
+        .audio-wrapper {
+            background-color: transparent;
+            opacity: 0;
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            z-index: 1002;
+            transition: opacity 0.5s ease-in-out;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .audio-wrapper.visible {
+            opacity: 0.8;
+        }
+
+        @keyframes pulse {
+            0% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+        .audio-wrapper button {
+            animation: pulse 5s infinite ease-in-out;
+            border: none;
+            background: rgba(255, 255, 255, 0.2);
+            color: white;
+            padding: 5px 10px;
+            cursor: pointer;
+            border-radius: 5px;
+        }
+
+        .audio-wrapper button:hover {
+            background: rgba(255, 255, 255, 0.4);
+        }
+
+        .audio-wrapper input[type="range"] {
+            accent-color: white;
+        }
+
+        #fullscreenBtn {}
+    </style>
+</head>
+
+<body onload="init()" onbeforeunload="stopInterval()">
+
+    <div id="image-container-wrapper">
+        <!-- Image containers are added here by JavaScript -->
+    </div>
+
+    <script type="text/javascript">
+        var images = ['images/dedu1.webp', 'images/dedu10.webp', 'images/dedu2.webp',
+            'images/dedu3.webp', 'images/dedu4.webp', 'images/dedu5.webp', 'images/dedu6.webp',
+            'images/dedu7.webp', 'images/dedu8.webp', 'images/dedu9.webp', 'images/100x.webp', 'images/SEE YOURSELF.webp', 'images/white walls stain glass.webp',
+            'images/RESOURCES.webp', 'images/SUNSHINE.webp', 'images/LIFTED.webp', 'images/ETCHER.webp',
+            'images/DRIED BERRIES.webp', 'images/BEAN SPROUTS.webp', 'images/FLIES OF MATIC.webp', 'images/PROTON-K.webp'
+        ];
+
+        var currentIndex = 0;
+        var intervalId;
+        var imageContainers = [];
+        var cursorVisibilityTimer;
+
+        // Pre-load images
+        var imgElements = [];
+        for (var i = 0; i < images.length; i++) {
+            var img = new Image();
+            img.src = images[i];
+            imgElements.push(img);
+        }
+
+        // --- Cursor Visibility Functions (NEW) ---
+        function setupCursorVisibility() {
+            function showCursor() {
+                document.body.classList.add('cursor-visible');
+                resetCursorVisibilityTimer();
+            }
+
+            function hideCursor() {
+                document.body.classList.remove('cursor-visible');
+            }
+
+            function resetCursorVisibilityTimer() {
+                clearTimeout(cursorVisibilityTimer);
+                cursorVisibilityTimer = setTimeout(hideCursor, 3000); // 3 seconds
+            }
+
+            document.addEventListener('mousemove', showCursor);
+            showCursor(); //initially display cursor
+        }
+
+
+        // --- Audio Visibility Functions ---
+
+        var audioVisibilityTimer;
+
+        function showAudioPlayer() {
+            audioWrapper.classList.add('visible');
+            resetAudioVisibilityTimer();
+        }
+
+        function hideAudioPlayer() {
+            audioWrapper.classList.remove('visible');
+        }
+
+        function resetAudioVisibilityTimer() {
+            clearTimeout(audioVisibilityTimer);
+            audioVisibilityTimer = setTimeout(hideAudioPlayer, 3000);
+        }
+
+        function setupAudioVisibility() {
+            var audioWrapper = document.querySelector('.audio-wrapper');
+
+            function showAudioPlayer() {
+                audioWrapper.classList.add('visible');
+                resetAudioVisibilityTimer();
+            }
+
+            function hideAudioPlayer() {
+                audioWrapper.classList.remove('visible');
+            }
+
+            function resetAudioVisibilityTimer() {
+                clearTimeout(audioVisibilityTimer);
+                audioVisibilityTimer = setTimeout(hideAudioPlayer, 3000);
+            }
+
+            document.addEventListener('mousemove', showAudioPlayer);
+            showAudioPlayer(); //initial display
+        }
+
+
+        // --- Image Handling Functions ---
+
+        function createImageContainers() {
+            var wrapper = document.getElementById('image-container-wrapper');
+            for (var i = 0; i < 2; i++) {
+                var container = document.createElement('div');
+                container.classList.add('image-container');
+                wrapper.appendChild(container);
+                imageContainers.push(container);
+            }
+        }
+
+        function changeBackground() {
+            var nextIndex1 = Math.floor(Math.random() * images.length);
+            var nextIndex2 = Math.floor(Math.random() * images.length);
+            while (nextIndex1 === nextIndex2) {
+                nextIndex2 = Math.floor(Math.random() * images.length);
+            }
+
+            var nextContainer = imageContainers.find(c => !c.classList.contains('active'));
+            var currentContainer = imageContainers.find(c => c.classList.contains('active'));
+
+            nextContainer.style.backgroundImage = `url('${images[nextIndex1]}'), url('${images[nextIndex2]}')`;
+
+            if (currentContainer) {
+                currentContainer.classList.remove('active');
+                currentContainer.style.zIndex = "0";
+            }
+            nextContainer.classList.add('active');
+        }
+
+        function stopInterval() {
+            clearInterval(intervalId);
+        }
+
+        function init() {
+            createImageContainers();
+            changeBackground();
+            intervalId = setInterval(changeBackground, 30000);
+            document.body.classList.add('fade-in');
+            setupAudioVisibility();
+            setupCursorVisibility(); // Call the new function
+            addFullscreenButton();
+        }
+
+        // --- Fullscreen ---
+
+        function openFullscreen() {
+            try {
+                if (document.documentElement.requestFullscreen) {
+                    document.documentElement.requestFullscreen();
+                } else if (document.documentElement.webkitRequestFullScreen) { // Safari
+                    document.documentElement.webkitRequestFullScreen();
+                } else if (document.documentElement.mozRequestFullScreen) { // Old Firefox
+                    document.documentElement.mozRequestFullScreen();
+                } else if (document.documentElement.msRequestFullscreen) { // IE
+                    document.documentElement.msRequestFullscreen();
+                } else {
+                    console.warn("Fullscreen API is not supported");
+                }
+            } catch (error) {
+                console.warn("Fullscreen request failed:", error);
+                // Attempt fallback methods IMMEDIATELY within the catch block.
+                try {
+                    if (document.documentElement.webkitRequestFullScreen) { // Safari
+                        document.documentElement.webkitRequestFullScreen();
+                    } else if (document.documentElement.mozRequestFullScreen) { // Old Firefox
+                        document.documentElement.mozRequestFullScreen();
+                    } else if (document.documentElement.msRequestFullscreen) { // IE
+                        document.documentElement.msRequestFullscreen();
+                    } else {
+                        console.warn("Fullscreen API is not supported");
+                    }
+                }
+                catch (error2) {
+                    console.warn("Fullscreen request retry failed:", error2);
+                }
+            }
+        }
+
+        function addFullscreenButton() {
+            var audioWrapper = document.querySelector('.audio-wrapper');
+            var fullscreenBtn = document.createElement('button');
+            fullscreenBtn.id = 'fullscreenBtn';
+            fullscreenBtn.textContent = 'Fullscreen';
+            fullscreenBtn.onclick = openFullscreen;
+            audioWrapper.appendChild(fullscreenBtn);
+        }
+        // audio player
+        var audioFolder = "audio/";
+        var audioFiles = ['Abandoning Habits.mp3', 'Immarsat-4 F3.mp3', 'Philae.mp3', 'Vega 2.mp3'];
+        var audioQueue = shuffleArray([...audioFiles]);
+        var audioElement = new Audio(audioFolder + audioQueue.pop());
+
+        function shuffleArray(array) {
+            for (var i = array.length - 1; i > 0; i--) {
+                var j = Math.floor(Math.random() * (i + 1));
+                [array[i], array[j]] = [array[j], array[i]];
+            }
+            return array;
+        }
+
+        audioElement.addEventListener('ended', function () {
+            if (audioQueue.length === 0) {
+                audioQueue = shuffleArray([...audioFiles]);
+            }
+            audioElement.src = audioFolder + audioQueue.pop();
+            audioElement.play();
+        });
+
+        function playAudio() {
+            audioElement.play();
+            resetAudioVisibilityTimer();
+        }
+
+        function pauseAudio() {
+            audioElement.pause();
+            resetAudioVisibilityTimer();
+        }
+
+        function nextTrack() {
+            if (audioQueue.length === 0) {
+                audioQueue = shuffleArray([...audioFiles]);
+            }
+            audioElement.src = audioFolder + audioQueue.pop();
+            audioElement.play();
+            resetAudioVisibilityTimer();
+        }
+
+        function adjustVolume(volumeValue) {
+            audioElement.volume = volumeValue;
+            resetAudioVisibilityTimer();
+        }
+
+    </script>
+
+    <div class="audio-wrapper">
+        <button onclick="playAudio()">Play</button>
+        <button onclick="pauseAudio()">Pause</button>
+        <button onclick="nextTrack()">Next</button>
+        <input type="range" min="0" max="1" step="0.1" onchange="adjustVolume(this.value)" />
+        <!-- Fullscreen button will be added here by JavaScript -->
+    </div>
+
+</body>
+
+</html>
